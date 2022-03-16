@@ -1,0 +1,11 @@
+<html>
+<body>
+<h3>Chào mừng bạn đã gia nhập gia đình của chúng tôi</h3>
+<p>
+Chúng tôi xin thông báo tài khoản của bạn đã đăng ký thành công. Chi tiết tài khoản của bạn như sau:<br />
+Tài khoản:<b>${username}</b><br />
+Mật khẩu:<b>${password}</b>
+</p>
+<h3> Chúc bạn một ngày mới tốt lành !</h3>
+</body>
+</html>
