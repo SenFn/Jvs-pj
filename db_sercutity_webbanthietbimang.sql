@@ -1,4 +1,5 @@
 --create database db_sercutity_webbanthietbimang
+use db_sercutity_WebDienTu
 create table authorities(
 	[username] varchar(50) null,
 	[authority] varchar(50) null

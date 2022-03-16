@@ -1,5 +1,5 @@
-﻿--Create database Webnetworkdevices_db1
---use Webnetworkdevices_db1
+﻿--Create database WebDienTu_db
+--use WebDienTu_db
 -- drop database current in use---------------------------------------------
 --ALTER DATABASE Webnetworkdevices_db SET MULTI_USER WITH ROLLBACK IMMEDIATE
 --alter database Webnetworkdevices_db set single_user with rollback immediate
@@ -60,16 +60,16 @@ trang_thai int,
 so_luong_trong_kho int,
 --id INT IDENTITY(1,1)
 )
-insert into sanpham values(N'Wifi 4GB LTE 150 MBPS Tenda - 4G180',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180.png', SINGLE_BLOB) as T1),'router Wifi',299999,1,50)
-insert into sanpham values(N'Wifi Mesh AC1200 Tp-Link Deco E4',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Hệ thống Wifi Mesh cho toàn ngôi nhà AC1200 Tp-Link Deco E4.png', SINGLE_BLOB) as T1),'router Wifi',499999,1,50)
-insert into sanpham values(N'Router Wifi 4G TP-Link TL-MR100 300Mbps',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 4G TP-Link TL-MR100 300Mbps.png', SINGLE_BLOB) as T1),'router Wifi',200000,1,50)
-insert into sanpham values(N'Wifi 6 Huawei AX3 Pro 3000Mbps CPU 4 core',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 6 Huawei AX3 Pro băng tần kép 3000Mbps CPU 4 nhân.png', SINGLE_BLOB) as T1),'router Wifi',1500000,1,50)
-insert into sanpham values(N'Router Wifi 6 Redmi AX5',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 6 Redmi AX5.png', SINGLE_BLOB) as T1),'router Wifi',2050500,1,50)
-insert into sanpham values(N'Router Wifi 6 Xiaomi Aiot AX3600',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 6 Xiaomi Aiot AX3600.png', SINGLE_BLOB) as T1),'router Wifi',550000,1,50)
-insert into sanpham values(N'Router WIFI Mesh Xiaomi',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router WIFI Mesh Xiaomi.png', SINGLE_BLOB) as T1),'router Wifi',400000,1,50)
-insert into sanpham values(N'Router Wifi Redmi AC2100',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi Redmi AC2100.png', SINGLE_BLOB) as T1),'router Wifi',1230000,1,50)
-insert into sanpham values(N'Router Wifi Tenda AC5v3',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi Tenda AC5v3 băng tầng kép Ac1200.png', SINGLE_BLOB) as T1),'router Wifi',2400000,1,50)
-insert into sanpham values(N'Router Wifi Xiaomi 4 Pro',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi Xiaomi 4 Pro.png', SINGLE_BLOB) as T1),'router Wifi',900000,1,50)
+insert into sanpham values(N'Wifi 4GB LTE 150 MBPS Tenda - 4G180',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Bộ_phát_Wifi_di_động_4GB_LTE_150_MBPS_Tenda-4G180.png', SINGLE_BLOB) as T1),'router Wifi',299999,1,50)
+insert into sanpham values(N'Wifi Mesh AC1200 Tp-Link Deco E4',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Hệ thống Wifi Mesh cho toàn ngôi nhà AC1200 Tp-Link Deco E4.png', SINGLE_BLOB) as T1),'router Wifi',499999,1,50)
+insert into sanpham values(N'Router Wifi 4G TP-Link TL-MR100 300Mbps',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 4G TP-Link TL-MR100 300Mbps.png', SINGLE_BLOB) as T1),'router Wifi',200000,1,50)
+insert into sanpham values(N'Wifi 6 Huawei AX3 Pro 3000Mbps CPU 4 core',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 6 Huawei AX3 Pro băng tần kép 3000Mbps CPU 4 nhân.png', SINGLE_BLOB) as T1),'router Wifi',1500000,1,50)
+insert into sanpham values(N'Router Wifi 6 Redmi AX5',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 6 Redmi AX5.png', SINGLE_BLOB) as T1),'router Wifi',2050500,1,50)
+insert into sanpham values(N'Router Wifi 6 Xiaomi Aiot AX3600',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 6 Xiaomi Aiot AX3600.png', SINGLE_BLOB) as T1),'router Wifi',550000,1,50)
+insert into sanpham values(N'Router WIFI Mesh Xiaomi',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router WIFI Mesh Xiaomi.png', SINGLE_BLOB) as T1),'router Wifi',400000,1,50)
+insert into sanpham values(N'Router Wifi Redmi AC2100',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi Redmi AC2100.png', SINGLE_BLOB) as T1),'router Wifi',1230000,1,50)
+insert into sanpham values(N'Router Wifi Tenda AC5v3',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi Tenda AC5v3 băng tầng kép Ac1200.png', SINGLE_BLOB) as T1),'router Wifi',2400000,1,50)
+insert into sanpham values(N'Router Wifi Xiaomi 4 Pro',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi Xiaomi 4 Pro.png', SINGLE_BLOB) as T1),'router Wifi',900000,1,50)
 --------bangthongtinsanpham-------------------------------------------------------------------
 create table thong_tin_san_pham(
 matt INT IDENTITY(1,1) primary key,
@@ -82,7 +82,7 @@ bao_hanh nvarchar(200),
 --id INT IDENTITY(1,1),
 masp int
 )
-insert into thong_tin_san_pham values(N'Wifi 4GB LTE 150 MBPS Tenda - 4G180',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180.png', SINGLE_BLOB) as T1),299999,'Tenda',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Wifi 4GB LTE 150 MBPS Tenda - 4G180',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Bộ_phát_Wifi_di_động_4GB_LTE_150_MBPS_Tenda-4G180.png', SINGLE_BLOB) as T1),299999,'Tenda',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -167,7 +167,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',1)
-insert into thong_tin_san_pham values(N'Wifi Mesh AC1200 Tp-Link Deco E4',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Hệ thống Wifi Mesh cho toàn ngôi nhà AC1200 Tp-Link Deco E4.png', SINGLE_BLOB) as T1),499999,'Tp-Link',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Wifi Mesh AC1200 Tp-Link Deco E4',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Hệ thống Wifi Mesh cho toàn ngôi nhà AC1200 Tp-Link Deco E4.png', SINGLE_BLOB) as T1),499999,'Tp-Link',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -252,7 +252,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',2)
-insert into thong_tin_san_pham values(N'Router Wifi 4G TP-Link TL-MR100 300Mbps',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 4G TP-Link TL-MR100 300Mbps.png', SINGLE_BLOB) as T1),200000,'Tp-link',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Router Wifi 4G TP-Link TL-MR100 300Mbps',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 4G TP-Link TL-MR100 300Mbps.png', SINGLE_BLOB) as T1),200000,'Tp-link',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -337,7 +337,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',3)
-insert into thong_tin_san_pham values(N'Wifi 6 Huawei AX3 Pro 3000Mbps CPU 4 core',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 6 Huawei AX3 Pro băng tần kép 3000Mbps CPU 4 nhân.png', SINGLE_BLOB) as T1),1500000,'Huawei',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Wifi 6 Huawei AX3 Pro 3000Mbps CPU 4 core',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 6 Huawei AX3 Pro băng tần kép 3000Mbps CPU 4 nhân.png', SINGLE_BLOB) as T1),1500000,'Huawei',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -422,7 +422,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',4)
-insert into thong_tin_san_pham values(N'Router Wifi 6 Redmi AX5',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 6 Redmi AX5.png', SINGLE_BLOB) as T1),2050500,'Redmi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Router Wifi 6 Redmi AX5',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 6 Redmi AX5.png', SINGLE_BLOB) as T1),2050500,'Redmi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -507,7 +507,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',5)
-insert into thong_tin_san_pham values(N'Router Wifi 6 Xiaomi Aiot AX3600',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi 6 Xiaomi Aiot AX3600.png', SINGLE_BLOB) as T1),550000,'Xiaomi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Router Wifi 6 Xiaomi Aiot AX3600',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi 6 Xiaomi Aiot AX3600.png', SINGLE_BLOB) as T1),550000,'Xiaomi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -592,7 +592,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',6)
-insert into thong_tin_san_pham values(N'Router WIFI Mesh Xiaomi',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router WIFI Mesh Xiaomi.png', SINGLE_BLOB) as T1),400000,'Xiaomi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Router WIFI Mesh Xiaomi',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router WIFI Mesh Xiaomi.png', SINGLE_BLOB) as T1),400000,'Xiaomi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -677,7 +677,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',7)
-insert into thong_tin_san_pham values(N'Router Wifi Redmi AC2100',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi Redmi AC2100.png', SINGLE_BLOB) as T1),1230000,'Redmi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Router Wifi Redmi AC2100',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi Redmi AC2100.png', SINGLE_BLOB) as T1),1230000,'Redmi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -762,7 +762,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',8)
-insert into thong_tin_san_pham values(N'Router Wifi Tenda AC5v3',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi Tenda AC5v3 băng tầng kép Ac1200.png', SINGLE_BLOB) as T1),2400000,'Tenda',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Router Wifi Tenda AC5v3',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi Tenda AC5v3 băng tầng kép Ac1200.png', SINGLE_BLOB) as T1),2400000,'Tenda',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -847,7 +847,7 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',9)
-insert into thong_tin_san_pham values(N'Router Wifi Xiaomi 4 Pro',(SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Router Wifi Xiaomi 4 Pro.png', SINGLE_BLOB) as T1),900000,'Xiaomi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
+insert into thong_tin_san_pham values(N'Router Wifi Xiaomi 4 Pro',(SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Router Wifi Xiaomi 4 Pro.png', SINGLE_BLOB) as T1),900000,'Xiaomi',N'Những đặc điểm và tính năng bậc nhất của Netgear MR2100:
 
  
 
@@ -932,8 +932,8 @@ dụng dữ liệu, quản lý cài đặt mạng và thiết bị từ điện 
 - Bộ sạc QC 2.0 và cáp USB Type-C
 
 - Hướng dẫn nhanh',N'Bảo Hành Tại Trung tâm',10)
---insert into thong_tin_san_pham values((SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180.png', SINGLE_BLOB) as T1),'router Wifi xiaomi','Xiaomi',N'Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180',N'Bảo Hành Tại Trung tâm xiaomi','sp1')
---insert into thong_tin_san_pham values((SELECT * FROM OPENROWSET(BULK N'D:\ĐềTài_WWW_Webbanthietbimang\wifipng\Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180.png', SINGLE_BLOB) as T1),'router Wifi dell','dell',N'Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180',N'Bảo Hành Tại Trung tâm xiaomi','sp2')
+--insert into thong_tin_san_pham values((SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180.png', SINGLE_BLOB) as T1),'router Wifi xiaomi','Xiaomi',N'Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180',N'Bảo Hành Tại Trung tâm xiaomi','sp1')
+--insert into thong_tin_san_pham values((SELECT * FROM OPENROWSET(BULK N'C:\Users\hoang\Desktop\webjava\master\WebBanHang\src\img\Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180.png', SINGLE_BLOB) as T1),'router Wifi dell','dell',N'Bộ phát Wifi di động 4GB LTE 150 MBPS Tenda - 4G180',N'Bảo Hành Tại Trung tâm xiaomi','sp2')
 --------------bang gio hang-----------------------------
 create table gio_hang(
 maghh INT IDENTITY(1,1) primary key,

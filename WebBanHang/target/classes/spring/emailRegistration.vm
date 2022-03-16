@@ -1,0 +1,10 @@
+<html>
+<body>
+<h3>Confirm register account</h3>
+<p>
+Ur account:<br />
+username:<b>${username}</b><br />
+Mpassword:<b>${password}</b>
+</p>
+</body>
+</html>
