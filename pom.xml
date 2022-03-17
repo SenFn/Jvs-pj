@@ -5,7 +5,7 @@
     <groupId>com.mycompany</groupId>
     <artifactId>WebBanHang</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>WebBanHang</name>
 
     <properties>
@@ -202,16 +202,14 @@
     <build>
         <finalName>WebBanHang</finalName>
         <plugins>
-
             <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <url>https://test-webshop512.herokuapp.com/</url>
-                    <!--<url>http://localhost:8080/manager/text</url>-->
-                    <server>TomcatServer</server>
-                    <path>/WebBanHang</path>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
+                    <warName>${project.artifactId}</warName>
                 </configuration>
             </plugin>
 
@@ -228,7 +226,7 @@
                                 <artifactItem>
                                     <groupId>com.github.jsimone</groupId>
                                     <artifactId>webapp-runner</artifactId>
-                                    <version>8.0.30.2</version>
+                                    <version>9.0.13.0</version>
                                     <destFileName>webapp-runner.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
