@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebBanHang" options="-endorseddirs C:\Users\hoang\Desktop\webjava\master\WebBanHang\target/endorsed -XDignore.symbol.file -XDignore.symbol.file" />
+      <module name="WebBanHang" options="-endorseddirs C:\Users\hoang\Desktop\webjava\WebBanHang\target/endorsed -XDignore.symbol.file -XDignore.symbol.file" />
     </option>
   </component>
 </project>
