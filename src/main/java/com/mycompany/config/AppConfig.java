@@ -10,6 +10,7 @@ import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
+import javax.faces.application.Application;
 import javax.sql.DataSource;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.exception.VelocityException;
@@ -38,7 +39,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
  * @author s3n
  */
 @Configuration
-// Cung cấp hỗ trợ tương tự như <mvc: annotation-driven /> trong XML
 @EnableWebMvc
 @ComponentScan("com.mycompany")
 @PropertySource({"classpath:persistence-mssql.properties",
