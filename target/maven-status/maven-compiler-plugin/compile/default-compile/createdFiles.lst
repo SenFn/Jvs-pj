@@ -49,5 +49,6 @@ com\mycompany\config\AppConfig.class
 com\mycompany\controller\KhachHangController.class
 com\mycompany\entity\KhachHang.class
 com\mycompany\controller\HomeController.class
+com\mycompany\config\Main.class
 com\mycompany\controller\LoginController.class
 com\mycompany\user\CrmUser.class
