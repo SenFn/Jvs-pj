@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar target/endorsed/webapp-runner.jar --port $PORT target/*.war
+web: java $JAVA_OPTS -jar target/WebBanHang-jar-with-dependencies.jar -Dserver.port=$PORT $JAR_OPTS
