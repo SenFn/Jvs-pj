@@ -1,1 +1,0 @@
-web: java $JAVA_OPTS -jar target/WebBanHang-jar-with-dependencies.jar -Dserver.port=$PORT $JAR_OPTS
