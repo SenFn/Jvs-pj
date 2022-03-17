@@ -10,12 +10,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WebBanHang" target="1.5" />
+      <module name="WebBanHang" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebBanHang" options="" />
+      <module name="WebBanHang" options="-endorseddirs C:\Users\hoang\Desktop\webjava\WebBanHang\target/endorsed -XDignore.symbol.file -XDignore.symbol.file" />
     </option>
   </component>
 </project>
