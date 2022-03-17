@@ -20,15 +20,8 @@
         <!--	<maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>-->
     </properties>
-    
-    <dependencies>
 
-        <dependency>
-            <groupId>com.heroku</groupId>
-            <artifactId>webapp-runner</artifactId>
-            <version>9.0.52.1</version>
-        </dependency>
-        <!-- Thanks for using https://jar-download.com -->
+    <dependencies>
 
         <dependency>
             <groupId>commons-lang</groupId>
@@ -56,7 +49,7 @@
             <artifactId>spring-context-support</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-        <!-- velocity --> 
+        <!-- velocity -->
         <dependency>
             <groupId>com.alibaba.spring</groupId>
             <artifactId>spring-webmvc-velocity</artifactId>
@@ -88,14 +81,14 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>${springsecurity.version}</version>
-        </dependency>	
+        </dependency>
 
         <!-- Add Spring Security Taglibs support -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
             <version>${springsecurity.version}</version>
-        </dependency>	
+        </dependency>
 
         <!-- Servlet, JSP and JSTL support -->
         <dependency>
@@ -129,7 +122,7 @@
             <artifactId>spring-tx</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-        
+
         <!-- Spring ORM -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -150,7 +143,7 @@
             <artifactId>mssql-jdbc</artifactId>
             <version>${mssql.connector.version}</version>
         </dependency>
- 
+
         <!-- C3PO -->
         <dependency>
             <groupId>com.mchange</groupId>
@@ -177,11 +170,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.5</version>
         </dependency>
-        
-        <dependency>  
-            <groupId>org.hibernate.validator</groupId>  
-            <artifactId>hibernate-validator</artifactId>  
-            <version>6.0.13.Final</version>  
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.13.Final</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/xerces/xercesImpl -->
@@ -235,27 +228,6 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals><goal>copy</goal></goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.github.jsimone</groupId>
-                                    <artifactId>webapp-runner</artifactId>
-                                    <version>9.0.13.0</version>
-                                    <destFileName>webapp-runner.jar</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
