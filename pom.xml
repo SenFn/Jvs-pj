@@ -9,7 +9,6 @@
 
     <name>WebBanHang</name>
     <properties>
-        <start-class>com.mycompany.config</start-class>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springframework.version>5.2.2.RELEASE</springframework.version>
