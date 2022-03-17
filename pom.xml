@@ -5,9 +5,9 @@
     <groupId>com.mycompany</groupId>
     <artifactId>WebBanHang</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-
+    <packaging>jar</packaging>
     <name>WebBanHang</name>
+
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -216,7 +216,7 @@
                   <archive>
                     <manifest>
                       <addClasspath>true</addClasspath>
-                      <mainClass>com.mycompany</mainClass>
+                      <mainClass>com.mycompany.config.Main</mainClass>
                     </manifest>
                   </archive>
                   <descriptorRefs>
@@ -232,7 +232,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.mycompany</mainClass>
+                            <mainClass>com.mycompany.config.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
