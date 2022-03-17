@@ -4,7 +4,7 @@
 <p>
 Ur account:<br />
 username:<b>${username}</b><br />
-Mpassword:<b>${password}</b>
+password:<b>${password}</b>
 </p>
 </body>
 </html>
