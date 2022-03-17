@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="WebBanHang-1.0-SNAPSHOT.war">
+    <root id="archive" name="WebBanHang.war">
       <element id="artifact" artifact-name="WebBanHang:war exploded" />
     </root>
   </artifact>
