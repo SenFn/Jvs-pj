@@ -216,7 +216,7 @@
                   <archive>
                     <manifest>
                       <addClasspath>true</addClasspath>
-                      <mainClass>com.mycompany.config</mainClass>
+                      <mainClass>com.mycompany</mainClass>
                     </manifest>
                   </archive>
                   <descriptorRefs>
@@ -224,6 +224,19 @@
                   </descriptorRefs>
                 </configuration>
           </plugin>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.mycompany</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -278,19 +291,7 @@
                 <version>3.3.1</version>
             </plugin>
 
-            <plugin>
-                <!-- Build an executable JAR -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.mycompany</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
