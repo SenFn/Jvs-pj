@@ -17,6 +17,8 @@ import org.apache.velocity.exception.VelocityException;
 import org.hibernate.SessionFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -38,12 +40,18 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
  *
  * @author s3n
  */
+@SpringBootApplication
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.mycompany")
 @PropertySource({"classpath:persistence-mssql.properties",
     "classpath:security-persistence-mssql.properties", "classpath:email.properties"})
 public class AppConfig implements WebMvcConfigurer {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
 
     @Autowired
     private Environment env;
