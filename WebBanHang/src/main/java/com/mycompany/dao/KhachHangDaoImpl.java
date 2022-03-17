@@ -83,12 +83,12 @@ public class KhachHangDaoImpl implements KhachHangDao{
         Session currentSession = sessionFactory.getCurrentSession();       
         Query theQuery = null;
         if (theSearchName != null && theSearchName.trim().length() > 0) {
-            theQuery =currentSession.createQuery("from khach_hang where lower(ten_khach_hang) like :theName", KhachHang.class);
+            theQuery =currentSession.createQuery("from KhachHang where lower(ten_khach_hang) like :theName", KhachHang.class);
             
            theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
         }
         else {
-            theQuery =currentSession.createQuery("from khach_hang", KhachHang.class);
+            theQuery =currentSession.createQuery("from KhachHang", KhachHang.class);
         }        
         List<KhachHang> khackHang = theQuery.getResultList();                     
         return khackHang;
@@ -97,7 +97,7 @@ public class KhachHangDaoImpl implements KhachHangDao{
     @Override
     public KhachHang getKhachHangByName(String name) {
        Session currentSession = sessionFactory.getCurrentSession();
-       Query query = currentSession.createQuery("from khach_hang where tenKhachHang=:namekh");
+       Query query = currentSession.createQuery("from KhachHang where tenKhachHang=:namekh");
        query.setParameter("namekh",name);
        KhachHang khachHang = (KhachHang) query.uniqueResult();
        return khachHang;

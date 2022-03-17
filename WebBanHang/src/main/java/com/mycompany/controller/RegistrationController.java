@@ -181,7 +181,7 @@ public class RegistrationController {
                 MimeMessageHelper helper = new MimeMessageHelper(msg, true, "UTF-8");
                 helper.setFrom("Administrator");
                 helper.setTo(emailAddress);
-                helper.setSubject("[Test Mail Service] Regiser success.");
+                helper.setSubject("[Test Mail Service] Register success.");
 
                 Map<String, Object> params = new HashMap<String, Object>();
                 params.put("username", name);

@@ -55,7 +55,7 @@ public class HomeController {
     private SanPhamTrongGioHangService sanPhamTrongGioHangService;
 //--------------------------------------------------------------------------------------------------------------------------
 
-    @GetMapping(value={ "/", "/index" , "/index.jsp"})
+    @GetMapping(value={ "/", "/index" , "/index"})
     public String Home(Model model) throws SQLException {
         //tao gio hang khi khoi dong trang
         List<SanPham> sanPham = sanPhamService.getSanPhams();
