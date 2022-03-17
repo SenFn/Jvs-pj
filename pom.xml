@@ -216,7 +216,7 @@
                   <archive>
                     <manifest>
                       <addClasspath>true</addClasspath>
-                      <mainClass>com.mycompany.config.Main</mainClass>
+                      <mainClass>com.mycompany.config.AppConfig</mainClass>
                     </manifest>
                   </archive>
                   <descriptorRefs>
@@ -232,7 +232,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.mycompany.config.Main</mainClass>
+                            <mainClass>com.mycompany.config.AppConfig</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
