@@ -40,6 +40,7 @@ com\mycompany\controller\GioHangController.class
 com\mycompany\config\MySpringMvcDispatcherServletInitializer.class
 com\mycompany\service\SanPhamTrongGioHangServiceImpl.class
 com\mycompany\dao\KhachHangDaoImpl.class
+com\mycompany\config\ServingWebContentApplication.class
 com\mycompany\controller\RegistrationController$1.class
 com\mycompany\service\KhachHangService.class
 com\mycompany\service\SanPhamServiceImpl.class
@@ -49,6 +50,5 @@ com\mycompany\config\AppConfig.class
 com\mycompany\controller\KhachHangController.class
 com\mycompany\entity\KhachHang.class
 com\mycompany\controller\HomeController.class
-com\mycompany\config\Main.class
 com\mycompany\controller\LoginController.class
 com\mycompany\user\CrmUser.class

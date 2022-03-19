@@ -13,7 +13,6 @@ C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\controller
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\dao\HoaDonDaoImpl.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\dao\SanPhamTrongGioHangDaoImpl.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\entity\GiaoHang.java
-C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\config\Main.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\dao\ThongTinSanPhamDao.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\entity\ThongTinSanPham.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\dao\KhachHangDaoImpl.java
@@ -49,5 +48,6 @@ C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\service\Ho
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\controller\GioHangController.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\config\SecurityWebApplicationInitializer.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\dao\SanPhamDao.java
+C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\config\ServingWebContentApplication.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\dao\GioHangDaoImpl.java
 C:\Users\hoang\Desktop\webjava\WebBanHang\src\main\java\com\mycompany\controller\ThanhToanController.java
