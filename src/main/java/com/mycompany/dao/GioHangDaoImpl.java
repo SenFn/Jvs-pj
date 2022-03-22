@@ -5,16 +5,14 @@
  */
 package com.mycompany.dao;
 
-import com.mycompany.entity.GiaoHang;
-import com.mycompany.entity.GioHang;
-import com.mycompany.entity.SanPhamTrongGioHang;
-import com.mycompany.entity.KhachHang;
+import com.mycompany.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -22,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Repository
 @EnableTransactionManagement
+@Transactional
 public class GioHangDaoImpl implements GioHangDao{
     @Autowired
     private SessionFactory sessionFactory;
@@ -48,6 +47,16 @@ public class GioHangDaoImpl implements GioHangDao{
            GioHang gioHang = currentSession.get(GioHang.class, theId);
             currentSession.delete(gioHang);
     }
+
+    @Override
+    public void saveGioHang(GioHang gioHang, int mahd) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        HoaDon hoaDon = currentSession.get(HoaDon.class, mahd);
+        hoaDon.addGioHang(gioHang);
+        currentSession.saveOrUpdate(gioHang);
+        //return gioHang;
+    }
+
     @Override
     public SanPhamTrongGioHang updateSoLuongSanPham(SanPhamTrongGioHang sanPhamTrongGioHang , int soluong){
         //SanPhamTrongGioHang sanPhamTrongGioHang1= new SanPhamTrongGioHang();

@@ -20,7 +20,9 @@ public interface KhachHangDao {
     public int NextIdKh();
     public KhachHang getKhachHangByName(String name);
     public List<KhachHang> getKhachHangs();
+
     public KhachHang getKhachHang(int theId);
+
     public List<HoaDon> getHoaDons(int Id);
     //public SanPhamTrongGioHang getGioHang(int Id);
     public void saveKhachHang(KhachHang khachHang);

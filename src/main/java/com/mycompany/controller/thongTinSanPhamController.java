@@ -5,9 +5,11 @@
  */
 package com.mycompany.controller;
 
+import com.mycompany.entity.GioHang;
 import com.mycompany.entity.SanPhamTrongGioHang;
 import com.mycompany.entity.SanPham;
 import com.mycompany.entity.ThongTinSanPham;
+import com.mycompany.service.DumpService;
 import com.mycompany.service.SanPhamService;
 import com.mycompany.service.SanPhamTrongGioHangService;
 import com.mycompany.service.ThongTinSanPhamService;
@@ -89,29 +91,45 @@ public class thongTinSanPhamController {
     }
 //--------------------------------------------------------------------------------------------------------------------------
     @GetMapping("/list")
-    public String listThongTinSanPham(@RequestParam("sanphamId") int theId, Model theModel,
-            @RequestParam("onclick") String onclick, @RequestParam("giohangId") int giohangId,
-             @RequestParam("tennguoidung") String tendangnhap) {
-        if (onclick.equals("index")) {
-            int soluongsanpham = sanPhamTrongGioHangService.countGioHang(giohangId);
-            SanPhamTrongGioHang sanPhamTronggiohang = new SanPhamTrongGioHang();
-            theModel.addAttribute("sanphamtronggiohang", sanPhamTronggiohang);
-            theModel.addAttribute("giohangId", giohangId);
-            ThongTinSanPham thongTinSanPham = thongTinSanPhamService.getThongTinSanPham(theId);
-            theModel.addAttribute("soluongsanpham", soluongsanpham);
-            theModel.addAttribute("thongtinsanphams", thongTinSanPham);
-            theModel.addAttribute("tennguoidung",tendangnhap);
-        } 
-        else {
-            int soluongsanpham = sanPhamTrongGioHangService.countGioHang(giohangId);
-            //model.addAttribute("soluongsanpham", soluongsanpham);
-            theModel.addAttribute("giohangId", giohangId);
-            theModel.addAttribute("onclick", onclick);
-            theModel.addAttribute("soluongsanpham", soluongsanpham);
-            ThongTinSanPham thongTinSanPham = thongTinSanPhamService.getThongTinSanPham(theId);
-            theModel.addAttribute("thongtinsanphams", thongTinSanPham);
-            theModel.addAttribute("tennguoidung",tendangnhap);
+    public String listThongTinSanPham(@RequestParam("sanphamId") int theId, Model theModel
+//            ,@RequestParam("onclick") String onclick, @RequestParam("giohangId") int giohangId,
+//             @RequestParam("tennguoidung") String tendangnhap
+    ) {
+        ThongTinSanPham thongTinSanPham = thongTinSanPhamService.getThongTinSanPham(theId);
+        theModel.addAttribute("thongtinsanphams", thongTinSanPham);
+        String tendangnhap = DumpService.getUserName();
+        if(DumpService.isAnony()){
+            tendangnhap = "0";
         }
+        theModel.addAttribute("tennguoidung",tendangnhap);
+        if(DumpService.CacheCardCheckProduct(DumpService.getSessionID(), theId) == true)
+            theModel.addAttribute("onclick", "click");
+        else
+            theModel.addAttribute("onclick", "index");
+
+        GioHang gioHang = DumpService.getCacheBySessionID(DumpService.getSessionID()).giohang;
+        theModel.addAttribute("soluongsanpham", gioHang != null?gioHang.getSanPhamTrongGioHangs().size():0 );
+//        theModel.addAttribute("onclick", "index");
+//        if (onclick.equals("index")) {
+//            int soluongsanpham = sanPhamTrongGioHangService.countGioHang(giohangId);
+//            SanPhamTrongGioHang sanPhamTronggiohang = new SanPhamTrongGioHang();
+//            theModel.addAttribute("sanphamtronggiohang", sanPhamTronggiohang);
+//            theModel.addAttribute("giohangId", giohangId);
+//            ThongTinSanPham thongTinSanPham = thongTinSanPhamService.getThongTinSanPham(theId);
+//            theModel.addAttribute("soluongsanpham", soluongsanpham);
+//            theModel.addAttribute("thongtinsanphams", thongTinSanPham);
+//            theModel.addAttribute("tennguoidung",tendangnhap);
+//        }
+//        else {
+//            int soluongsanpham = sanPhamTrongGioHangService.countGioHang(giohangId);
+//            //model.addAttribute("soluongsanpham", soluongsanpham);
+    //            theModel.addAttribute("giohangId", giohangId);
+//            theModel.addAttribute("onclick", onclick);
+//            theModel.addAttribute("soluongsanpham", soluongsanpham);
+//            ThongTinSanPham thongTinSanPham = thongTinSanPhamService.getThongTinSanPham(theId);
+//            theModel.addAttribute("thongtinsanphams", thongTinSanPham);
+//
+//        }
 
         return "chitietsanpham";
     }

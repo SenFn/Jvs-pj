@@ -1,4 +1,5 @@
 
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="com.mycompany.entity.GioHang"%>
 <%@page import="com.mycompany.entity.SanPham"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -114,7 +115,7 @@
                                                         <div class="row">
                                                             <div class="col-6 col-xs-6 col-sm-6 col-md-3 col-lg-3 order-md-0 order-0">
                                                                 <div class="logo">
-                                                                    <a <a href="<%=request.getContextPath()%>/index.jsp"><img src="${pageContext.request.contextPath}/resources/images/logo6.png" alt=""></a>
+                                                                    <a <a href="<%=request.getContextPath()%>/index"><img src="${pageContext.request.contextPath}/resources/images/logo6.png" alt=""></a>
                                                                     <h1>Website bán hàng</h1>
                                                                 </div>
                                                             </div>
@@ -165,8 +166,8 @@
                                                     <div class="container">
                                                         <div id="nav-menu">
                                                             <ul>
-                                                                <li class="current-menu-item"><a href="<%=request.getContextPath()%>/index.jsp">Trang chủ</a></li>
-                                                                <li><a href="<%=request.getContextPath()%>/gioithieu.jsp">Giới thiệu</a></li>
+                                                                <li class="current-menu-item"><a href="<%=request.getContextPath()%>/index">Trang chủ</a></li>
+                                                                <li><a href="<%=request.getContextPath()%>/gioithieu">Giới thiệu</a></li>
                                                                 <li>
                                                                     <a href="#">Sản phẩm</a>
                                                                     <ul>
@@ -178,7 +179,7 @@
                                                                 </li>
                                                                 <li><a href="#">Tin tức</a></li>
                                                                 <li><a href="#">Tuyển dụng</a></li>
-                                                                <li><a href="<%=request.getContextPath()%>/lienhe.jsp">Liên hệ</a></li>
+                                                                <li><a href="<%=request.getContextPath()%>/lienhe">Liên hệ</a></li>
                                                             </ul>
                                                             <div class="clear"></div>
                                                         </div>
@@ -324,22 +325,22 @@
                                                                         String onclick = "index";
                                                                     %>
                                                                     <c:if test="${!empty giohang}">
-                                                                        <%
-                                                                            GioHang gioHang = (GioHang) request.getAttribute("giohang");
-                                                                            int maghh = gioHang.getMaghh();
-                                                                            String giohangId = String.valueOf(maghh);
-                                                                            // double giatong = gioHang.getTongtien();
-                                                                            session.setAttribute("giohangId", giohangId);
-                                                                            //hongTinSanPham thongTinSanPham = (ThongTinSanPham) request.getAttribute("thongtinsanphams");
-%>
+<%--                                                                        <%--%>
+<%--                                                                            GioHang gioHang = (GioHang) request.getAttribute("giohang");--%>
+<%--                                                                            int maghh = gioHang.getMaghh();--%>
+<%--                                                                            String giohangId = String.valueOf(maghh);--%>
+<%--                                                                            // double giatong = gioHang.getTongtien();--%>
+<%--                                                                            session.setAttribute("giohangId", giohangId);--%>
+<%--                                                                            //hongTinSanPham thongTinSanPham = (ThongTinSanPham) request.getAttribute("thongtinsanphams");--%>
+<%--%>--%>
                                                                     </c:if>
                                                                     <c:forEach items="${sanphams}" var="sanpham" >
                                                                         <c:url var="thongtinsanphamUrl" value="/thongtinsanpham/list">
                                                                             <c:param name="sanphamId" value="${sanpham.masp}" />
-                                                                            <c:param name="giohangId" value="${giohangId}" />
-                                                                            <c:param name="onclick" value="<%= onclick%>" />
-                                                                            <c:param name="soluongsanpham"   value="${soluongsanpham}" />
-                                                                            <c:param name="tennguoidung"   value="${tennguoidung}" />  
+<%--                                                                            <c:param name="giohangId" value="${giohangId}" />--%>
+<%--                                                                            <c:param name="onclick" value="<%= onclick%>" />--%>
+<%--                                                                            <c:param name="soluongsanpham"   value="${soluongsanpham}" />--%>
+<%--                                                                            <c:param name="tennguoidung"   value="${tennguoidung}" />  --%>
                                                                         </c:url>
 
                                                                         <script type="text/javascript">
@@ -366,7 +367,7 @@
                                                                                 <div class="info-product " style="width: 180px; height: 200px">
                                                                                     <h4><a href="${thongtinsanphamUrl}" ><c:out value="${sanpham.tenSanPham}"/></a></h4>
                                                                                     <div class="price">
-                                                                                        <span class="price-current"><c:out value="${sanpham.giaSanPham}"/> vnđ</span>
+                                                                                        <span class="price-current"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sanpham.giaSanPham}" />đ</span>
                                                                                         <span class="price-old">990.000₫</span>
                                                                                     </div>
                                                                                     <a href="${thongtinsanphamUrl}" class="view-more">Xem chi tiết</a>
@@ -575,71 +576,9 @@
                                                                         </div>
                                                                         </div>
                                                                         </div>
-                                                                        <footer>
-                                                                            <div class="container">
-                                                                                <div class="row">
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                                        <div class="box-footer info-contact">
-                                                                                            <h3>Thông tin liên hệ</h3>
-                                                                                            <div class="content-contact">
-                                                                                                <p>Website chuyên cung cấp thiết bị điện tử hàng đầu Việt Nam</p>
-                                                                                                <p>
-                                                                                                    <strong>Địa chỉ:</strong> 12 Nguyễn Văn Bảo Phường 4 gò Vấp
-                                                                                                </p>
-                                                                                                <p>
-                                                                                                    <strong>Email: </strong> maihuytech@gmail.com
-                                                                                                </p>
-                                                                                                <p>
-                                                                                                    <strong>Điện thoại: </strong> 091234xxx
-                                                                                                </p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                                        <div class="box-footer info-contact">
-                                                                                            <h3>Thông tin khác</h3>
-                                                                                            <div class="content-list">
-                                                                                                <ul>
-                                                                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách bảo mật</a></li>
-                                                                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách đổi trả</a></li>
-                                                                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Phí vẫn chuyển</a></li>
-                                                                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Hướng dẫn thanh toán</a></li>
-                                                                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Chương trình khuyến mãi</a></li>
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                                        <div class="box-footer info-contact">
-                                                                                            <h3>Form liên hệ</h3>
-                                                                                            <div class="content-contact">
-                                                                                                <form action="/" method="GET" role="form">
-                                                                                                    <div class="row">
-                                                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                                            <input type="text" name="" id="" class="form-control" placeholder="Họ và Tên">
-                                                                                                        </div>
-                                                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                                                                                                            <input type="email" name="" id="" class="form-control" placeholder="Địa chỉ mail">
-                                                                                                        </div>
-                                                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                                                                                                            <input type="text" name="" id="" class="form-control" placeholder="Số điện thoại">
-                                                                                                        </div>
-                                                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                                            <input type="text" name="" id="" class="form-control" placeholder="Tiêu đề">
-                                                                                                        </div>
-                                                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                                            <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <button type="submit" class="btn-contact">Liên hệ ngay</button>
-                                                                                                </form>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                        <%--                        footer                    --%>
+                                  <%@ include file="footer.jsp" %>
 
-                                                                        </footer>
                                                                         <div class="modal fade" id="btnmodal" tabindex="-1" role="dialog" aria-hidden="true">
                                                                             <div class="modal-content modal-dialog">
                                                                                 <div class="modal-header">

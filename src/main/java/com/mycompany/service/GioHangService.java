@@ -19,5 +19,6 @@ public interface GioHangService {
     public GioHang getGioHang(int id);
       public void updateGiaoHang(GioHang ttsp, int khachhangId);
     public GioHang saveGioHang(GioHang gioHang);
+    public void saveGioHang(GioHang gioHang, int mahd);
     public void deleteGioHang(int theId);
 }

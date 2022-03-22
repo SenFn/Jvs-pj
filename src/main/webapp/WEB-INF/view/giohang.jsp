@@ -1,3 +1,5 @@
+<%--//parse money string .jsp https://www.tutorialspoint.com/jsp/jstl_format_formatnumber_tag.htm--%>
+
 <%@page import="com.mycompany.entity.SanPhamTrongGioHang"%>
 <%@page import="com.mycompany.entity.GioHang"%>
 <%@page import="com.mycompany.entity.SanPham"%>
@@ -6,6 +8,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -59,7 +62,7 @@
                                                                                                 <c:param name="tennguoidung"   value="${tennguoidung}" />
                                                                                             </c:url>
                                                                                         <li><a href="${giohanglistUrl}">Giỏ Hàng</a></li>
-                                                                                        <li><a href="<%=request.getContextPath()%>/doimatkhau.jsp">Đổi mật khẩu</a></li>
+                                                                                        <li><a href="<%=request.getContextPath()%>/doimatkhau">Đổi mật khẩu</a></li>
                                                                                     </ul>
                                                                                 </li>
 
@@ -81,8 +84,8 @@
                                                         <div class="container">
                                                             <div id="nav-menu">
                                                                 <ul>
-                                                                    <li class="current-menu-item"><a href="<%=request.getContextPath()%>/index.jsp">Trang chủ</a></li>
-                                                                    <li><a href="<%=request.getContextPath()%>/gioithieu.jsp">Giới thiệu</a></li>
+                                                                    <li class="current-menu-item"><a href="<%=request.getContextPath()%>/index">Trang chủ</a></li>
+                                                                    <li><a href="<%=request.getContextPath()%>/gioithieu">Giới thiệu</a></li>
                                                                     <li>
                                                                         <a href="#">Sản phẩm</a>
                                                                         <ul>
@@ -94,7 +97,7 @@
                                                                     </li>
                                                                     <li><a href="#">Tin tức</a></li>
                                                                     <li><a href="#">Tuyển dụng</a></li>
-                                                                    <li><a href="<%=request.getContextPath()%>/lienhe.jsp">Liên hệ</a></li>
+                                                                    <li><a href="<%=request.getContextPath()%>/lienhe">Liên hệ</a></li>
                                                                 </ul>
                                                                 <div class="clear"></div>
                                                             </div>
@@ -135,8 +138,6 @@
                                                                                 <tr> 
                                                                                     <c:url var="xoaUrl" value="/giohang/deleteSanPhamTrongGio">
                                                                                         <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>
-                                                                                        <c:param name="tennguoidung"   value="${tennguoidung}" />
-                                                                                        <c:param name="giohangId" value="${giohangId}"/>
                                                                                     </c:url>
                                                                                     <td><a class="btn-remove" href="${xoaUrl}"><span class="fa fa-trash-o"></span></a></td>
                                                                                     <td style="text-align: center">
@@ -152,18 +153,18 @@
                                                                                         <td style="text-align: center">
 
                                                                                         <c:url var="congUrl" value="/giohang/congsoluong">
-                                                                                            <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>
-                                                                                            <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                                                            <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                                                            <c:param name="giohangId" value="${giohangId}"/>
-                                                                                            <c:param name="tennguoidung"   value="${tennguoidung}" />
+                                                                                            <c:param name="masp" value="${sanPhamTrongGioHang.masp}"/>
+<%--                                                                                            <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                                                            <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                                                            <c:param name="giohangId" value="${giohangId}"/>--%>
+<%--                                                                                            <c:param name="tennguoidung"   value="${tennguoidung}" />--%>
                                                                                         </c:url>
                                                                                         <c:url var="truUrl" value="/giohang/trusoluong">
-                                                                                            <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>
-                                                                                            <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                                                            <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                                                            <c:param name="giohangId" value="${giohangId}"/>
-                                                                                            <c:param name="tennguoidung"   value="${tennguoidung}" />
+                                                                                            <c:param name="masp" value="${sanPhamTrongGioHang.masp}"/>
+<%--                                                                                            <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                                                            <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                                                            <c:param name="giohangId" value="${giohangId}"/>--%>
+<%--                                                                                            <c:param name="tennguoidung"   value="${tennguoidung}" />--%>
                                                                                         </c:url>
                                                                                         <span>
                                                                                             <c:if test="${sanPhamTrongGioHang.soLuong != 1}">
@@ -179,13 +180,14 @@
 
                                                                                     </td>
 
-                                                                                    <td style="text-align: center"> <span style="color : #ff0000" id="giaid"> <c:out value="${sanPhamTrongGioHang.giaSanPham}"></c:out></span>  </td>
-                                                                                    <td style="text-align: center">${sanPhamTrongGioHang.soLuong * sanPhamTrongGioHang.giaSanPham}<span id="tongtienid" style="color : #ff0000"></span>  </td>
+
+                                                                                    <td style="text-align: center"> <span style="color : #ff0000" id="giaid">  <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sanPhamTrongGioHang.giaSanPham}" /> VNĐ</span>  </td>
+                                                                                    <td style="text-align: center"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sanPhamTrongGioHang.soLuong * sanPhamTrongGioHang.giaSanPham}" /> VNĐ<span id="tongtienid" style="color : #ff0000"></span>  </td>
                                                                                 </tr>
                                                                                 <c:url var="thanhtoanUrl" value="/thanhtoan/showFormForAddThanhToan">
-                                                                                    <c:param name="giohangId" value="${giohangId}"/>
-                                                                                    <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                                                    <c:param name="tennguoidung"   value="${tennguoidung}" />
+<%--                                                                                    <c:param name="giohangId" value="${giohangId}"/>--%>
+<%--                                                                                    <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                                                    <c:param name="tennguoidung"   value="${tennguoidung}" />--%>
                                                                                 </c:url>
                                                                             </c:forEach>
 
@@ -209,7 +211,7 @@
                                                                                 <div class="modal-footer">
 
 
-                                                                                    <h5 style="text-align: center">Tổng Giá Tiền Phải Thanh Toán:             <span style="color : #ff0000" ><c:out value="${tonggia}"></c:out></span></h5>
+                                                                                    <h5 style="text-align: center">Tổng Giá Tiền Phải Thanh Toán:             <span style="color : #ff0000" ><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${tonggia}" /> VNĐ</span></h5>
                                                                                     <button onclick="window.location.href = '${thanhtoanUrl}';" type="button" id="btndathang" class="btn btn-danger btn-block" >Đặt Hàng</button>
                                                                                 </c:if>
                                                                                 <c:if test="${empty giohangs.sanPhamTrongGioHangs }">
@@ -222,75 +224,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <footer>
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                    <div class="box-footer info-contact">
-                                                                        <h3>Thông tin liên hệ</h3>
-                                                                        <div class="content-contact">
-                                                                            <p>Website chuyên cung cấp thiết bị điện tử hàng đầu Việt Nam</p>
-                                                                            <p>
-                                                                                <strong>Địa chỉ:</strong> 114 Dương Quảng Hàm ,Phường 5 , Gò Vấp
-                                                                            </p>
-                                                                            <p>
-                                                                                <strong>Email: </strong> locdevid1@gmail.com
-                                                                            </p>
-                                                                            <p>
-                                                                                <strong>Điện thoại: </strong> 0981074xxx
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                    <div class="box-footer info-contact">
-                                                                        <h3>Thông tin khác</h3>
-                                                                        <div class="content-list">
-                                                                            <ul>
-                                                                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách bảo mật</a></li>
-                                                                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách đổi trả</a></li>
-                                                                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Phí vẫn chuyển</a></li>
-                                                                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Hướng dẫn thanh toán</a></li>
-                                                                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Chương trình khuyến mãi</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                    <div class="box-footer info-contact">
-                                                                        <h3>Form liên hệ</h3>
-                                                                        <div class="content-contact">
-                                                                            <form action="/" method="GET" role="form">
-                                                                                <div class="row">
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                        <input type="text" name="" id="" class="form-control" placeholder="Họ và Tên">
-                                                                                    </div>
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                                                                                        <input type="email" name="" id="" class="form-control" placeholder="Địa chỉ mail">
-                                                                                    </div>
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                                                                                        <input type="text" name="" id="" class="form-control" placeholder="Số điện thoại">
-                                                                                    </div>
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                        <input type="text" name="" id="" class="form-control" placeholder="Tiêu đề">
-                                                                                    </div>
-                                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <button type="submit" class="btn-contact">Liên hệ ngay</button>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="copyright">
-                                                            <p>Copyright © 2020 LOCNGUYEN All Rights Reserved - Design </p>
-                                                        </div>
-                                                    </footer>
+                                                    <%--                        footer                    --%>
+                                                    <%@ include file="footer.jsp" %>
                                                 </div>
+
                                                 <div class="modal fade" id="btnmodal" tabindex="-1" role="dialog" aria-hidden="true">
+
                                                     <div class="modal-content modal-dialog">
                                                         <div class="modal-header">
                                                             <h1 class="text-center">Đăng Nhập</h1>

@@ -36,6 +36,11 @@ public class GiaoHangServiceImpl implements GiaoHangService{
     }
 
     @Override
+    public void saveGiaoHang(GiaoHang giaoHang) {
+        giaoHangDao.saveGiaoHang(giaoHang);
+    }
+
+    @Override
     @Transactional
     public void updateGiaoHang(GiaoHang gh, int string) {
         giaoHangDao.updateGiaoHang(gh, string);

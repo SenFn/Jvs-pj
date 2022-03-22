@@ -28,6 +28,11 @@ public class GioHangServiceImpl implements GioHangService{
     }
 
     @Override
+    public void saveGioHang(GioHang gioHang, int mahd) {
+        gioHangDao.saveGioHang(gioHang,mahd);
+    }
+
+    @Override
     @Transactional
     public void deleteGioHang(int theId) {
     gioHangDao.deleteGioHang(theId);

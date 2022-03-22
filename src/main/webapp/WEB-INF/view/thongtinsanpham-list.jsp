@@ -55,11 +55,11 @@
                                                 <a href="#">Tài Khoản</a>
                                                 <ul>
                                                     <li><a href="<%=request.getContextPath()%>/dangky">Đăng ký</a></li>
-                                                    <li><a href="<%=request.getContextPath()%>/giohang.jsp">Giỏ Hàng</a></li>
-                                                    <li><a href="<%=request.getContextPath()%>/doimatkhau.jsp">Đổi mật khẩu</a></li>
+                                                    <li><a href="<%=request.getContextPath()%>/giohang">Giỏ Hàng</a></li>
+                                                    <li><a href="<%=request.getContextPath()%>/doimatkhau">Đổi mật khẩu</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="<%=request.getContextPath()%>/lienhe.jsp">Liên hệ</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/lienhe">Liên hệ</a></li>
                                         </ul>
                                         <div class="clear"></div>
                                     </div>

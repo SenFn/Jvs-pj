@@ -40,7 +40,7 @@ import javax.sql.rowset.serial.SerialBlob;
 public class SanPhamTrongGioHang {
     @Id
     @Column(name = "maspgh")
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maspgh;
      @Column(name = "masp")
     private int masp;

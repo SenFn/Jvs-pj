@@ -8,17 +8,15 @@
 <html>
 
 <head>
-	<title>Access Denied</title>
+	<title>404 - Error</title>
 </head>
 
 <body>
-
-	<h2 style="text-align: center">Access Denied - You are not authorized to access this resource.</h2>
+	<h2 style="text-align: center">404 - Page not found</h2>
 	<hr>
 	<div style="text-align:center">
 		<a href="./" style="text-align: center">Back to Home Page</a>
 	</div>
-	
 </body>
 
 </html>

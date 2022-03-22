@@ -20,4 +20,6 @@ public interface GiaoHangDao {
      public GiaoHang getGiaoHang(int id);
     public void saveGiaoHang(GiaoHang giaoHang, int id);
     public void deleteGiaoHang(int theId);
+
+    void saveGiaoHang(GiaoHang giaoHang);
 }

@@ -29,6 +29,7 @@ public class KhachHangDaoImpl implements KhachHangDao{
    
     @Autowired
     SessionFactory sessionFactory;
+
     @Transactional
     @Override
     public List<KhachHang> getKhachHangs() {
@@ -102,7 +103,6 @@ public class KhachHangDaoImpl implements KhachHangDao{
        KhachHang khachHang = (KhachHang) query.uniqueResult();
        return khachHang;
     }
-
 
     
 }

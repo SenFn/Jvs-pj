@@ -12,10 +12,10 @@ import com.mycompany.entity.SanPhamTrongGioHang;
  * @author MPH
  */
 public interface SanPhamTrongGioHangService {
-     public double TongGiaGioHang(int giohangId);
+    public double TongGiaGioHang(int giohangId);
     public int countGioHang(int giohangId);
-          public void updateSanPhamTrongGioHang(SanPhamTrongGioHang SanPhamTrongGioHang, int gioHangId);
-     public SanPhamTrongGioHang getSanPhamTrongGioHang(int id);
+    public void updateSanPhamTrongGioHang(SanPhamTrongGioHang SanPhamTrongGioHang, int gioHangId);
+    public SanPhamTrongGioHang getSanPhamTrongGioHang(int id);
     public void saveSanPhamTrongGioHang(SanPhamTrongGioHang sanPhamTrongGioHang, int id);
     public void deleteSanPhamTrongGioHang(int theId);
 }

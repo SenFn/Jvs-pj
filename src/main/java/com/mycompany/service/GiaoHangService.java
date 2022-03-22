@@ -19,4 +19,6 @@ public interface GiaoHangService {
       public void saveGiaoHang(GiaoHang giaoHang, int id);
       public GiaoHang getGiaoHang(int id);
     public void deleteGiaoHang(int theId);
+
+    void saveGiaoHang(GiaoHang giaoHang);
 }

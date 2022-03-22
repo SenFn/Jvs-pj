@@ -12,8 +12,16 @@ import java.util.Properties;
 import java.util.logging.Logger;
 import javax.faces.application.Application;
 import javax.sql.DataSource;
+
+import com.mycompany.entity.CacheUser;
+import com.mycompany.entity.GioHang;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.exception.VelocityException;
+import org.ehcache.Cache;
+import org.ehcache.CacheManager;
+import org.ehcache.config.builders.CacheConfigurationBuilder;
+import org.ehcache.config.builders.CacheManagerBuilder;
+import org.ehcache.config.builders.ResourcePoolsBuilder;
 import org.hibernate.SessionFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +52,13 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 @PropertySource({"classpath:persistence-mssql.properties",
     "classpath:security-persistence-mssql.properties", "classpath:email.properties"})
 public class AppConfig implements WebMvcConfigurer {
+    public static CacheManager cacheManager = CacheManagerBuilder.newCacheManagerBuilder()
+            .build(true);
 
+    public static Cache<String, CacheUser> userCache = cacheManager.createCache("userCache", CacheConfigurationBuilder
+            .newCacheConfigurationBuilder(
+                    String.class, CacheUser.class,
+                    ResourcePoolsBuilder.heap(10)));
     @Autowired
     private Environment env;
     private Logger logger = Logger.getLogger(getClass().getName());

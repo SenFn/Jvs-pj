@@ -26,6 +26,14 @@ import javax.persistence.Table;
 @Table(name = "gio_hang")
 public class GioHang {
 
+    @Override
+    public String toString() {
+        return "GioHang{" +
+                "maghh=" + maghh +
+                ", sanPhamTrongGioHangs=" + sanPhamTrongGioHangs +
+                '}';
+    }
+
     @Id
     @Column(name = "maghh")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +48,6 @@ public class GioHang {
     
     
     public GioHang( List<SanPhamTrongGioHang> sanPhamTrongGioHangs) {
-       //his.tongtien = tongtien;
         this.sanPhamTrongGioHangs = sanPhamTrongGioHangs;
     }
 
@@ -77,7 +84,33 @@ public class GioHang {
         if (sanPhamTrongGioHangs == null) {
             sanPhamTrongGioHangs = new ArrayList<>();
         }
+
+        for(int i=0 ; i<sanPhamTrongGioHangs.size();i++){
+            if(sanPhamTrongGioHangs.get(i).getMasp() == sanPhamTrongGioHang.getMasp()){
+                int soluong = sanPhamTrongGioHangs.get(i).getSoLuong() + sanPhamTrongGioHang.getSoLuong();
+                if(soluong <= 0) {
+                    sanPhamTrongGioHangs.remove(i);
+                    return;
+                }
+                sanPhamTrongGioHangs.get(i).setSoLuong(soluong);
+                return;
+            }
+        }
+
         sanPhamTrongGioHangs.add(sanPhamTrongGioHang);
+    }
+
+    public void removeIndex(int index) {
+        if (sanPhamTrongGioHangs == null) {
+            sanPhamTrongGioHangs = new ArrayList<>();
+        }
+
+        for(int i=0 ; i<sanPhamTrongGioHangs.size();i++){
+            if(sanPhamTrongGioHangs.get(i).getMaspgh() == index){
+                sanPhamTrongGioHangs.remove(i);
+                return;
+            }
+        }
     }
 
 }

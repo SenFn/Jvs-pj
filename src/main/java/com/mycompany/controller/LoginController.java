@@ -29,11 +29,8 @@ public class LoginController {
     }
 //--------------------------------------------------------------------------------------------------------------------------
     @GetMapping("/access-denied")
-    public String showAccessDenied(@RequestParam("tendangnhap") String tendangnhap, Model model) {
-
-        model.addAttribute("tendangnhap", tendangnhap);
+    public String showAccessDenied(Model model) {
         return "access-denied";
-
     }
 
 }

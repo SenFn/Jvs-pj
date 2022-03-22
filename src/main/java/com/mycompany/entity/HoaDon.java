@@ -147,13 +147,13 @@ public class HoaDon {
         this.gioHangs = gioHangs;
     }
 
-        public void addGioHang(GioHang gioHang) {
+    public void addGioHang(GioHang gioHang) {
         if (gioHangs == null) {
             gioHangs = new ArrayList<>();
         }
         gioHangs.add(gioHang);
     }
-           public void addGiaoHang(GiaoHang giaoHang) {
+   public void addGiaoHang(GiaoHang giaoHang) {
         if (giaoHangs == null) {
             giaoHangs = new ArrayList<>();
         }

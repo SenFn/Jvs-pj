@@ -10,14 +10,9 @@ import com.mycompany.entity.GioHang;
 import com.mycompany.entity.HoaDon;
 import com.mycompany.entity.KhachHang;
 import com.mycompany.entity.SanPhamTrongGioHang;
-import com.mycompany.service.GiaoHangService;
+import com.mycompany.service.*;
 //import com.mycompany.service.ChiTietHoaDonService;
-import com.mycompany.service.GioHangService;
-import com.mycompany.service.HoaDonService;
-import com.mycompany.service.KhachHangService;
-import com.mycompany.service.SanPhamService;
-import com.mycompany.service.SanPhamTrongGioHangService;
-import com.mycompany.service.ThongTinSanPhamService;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -99,16 +94,34 @@ public class ThanhToanController {
             @RequestParam("hoadonId") int hoadonId, @RequestParam("giohangId") int giohangId,
             @RequestParam("soluongsp") int soluong, Model theModel,
             @RequestParam("tennguoidung") String tennguoidung) {
-                 
-            hoaDonService.saveHoaDon(hoaDon, khachhangId);
-            hoaDonService.updateGioHangCuaHoaDon(hoadonId, giohangId);
+
+        GioHang gh = DumpService.getCacheBySessionID(DumpService.getSessionID()).giohang;
+
+        GioHang newGH = new GioHang();
+        ArrayList<SanPhamTrongGioHang> sp = new ArrayList<>();
+        sp.add(DumpService.getCacheBySessionID(DumpService.getSessionID()).giohang.getSanPhamTrongGioHangs().get(0));
+        newGH.setSanPhamTrongGioHangs(sp);
+        hoaDon.addGioHang(newGH);
+        hoaDon.addGiaoHang(giaoHang);
+
+        hoaDonService.saveHoaDon(hoaDon, khachhangId);
+
+        for (int i=1; i< gh.getSanPhamTrongGioHangs().size();i++){
+            GioHang newGH1 = new GioHang();
+            ArrayList<SanPhamTrongGioHang> sp1 = new ArrayList<>();
+            newGH1.setSanPhamTrongGioHangs(sp1);
+            sp1.add(DumpService.getCacheBySessionID(DumpService.getSessionID()).giohang.getSanPhamTrongGioHangs().get(i));
+            gioHangService.saveGioHang(newGH1, hoaDon.getMahd());
+        }
+//        for(int i=0; i< hoaDon.getGioHangs().size();i++){
+//            hoaDonService.updateGioHangCuaHoaDon(hoaDon.getMahd(), hoaDon.getGioHangs().get(i).getMaghh());
+//        }
 //        // luu giao hang
-            giaoHangService.saveGiaoHang(giaoHang, hoadonId);
-            
-            theModel.addAttribute("tennguoidung", tennguoidung);
-            theModel.addAttribute("soluongsp", soluong);
-            theModel.addAttribute("giohangId", giohangId);
-        
+        //giaoHangService.saveGiaoHang(giaoHang, hoaDon.getMahd());
+
+        theModel.addAttribute("tennguoidung", tennguoidung);
+        theModel.addAttribute("soluongsp", soluong);
+        theModel.addAttribute("giohangId", giohangId);
       
         return "redirect:/homethanhtoan";
     }
@@ -137,8 +150,12 @@ public class ThanhToanController {
 //--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/showFormForAddThanhToan")
-    public String showFormForAddThanhToan(Model theModel, @RequestParam("giohangId") int theId,
-            @RequestParam("soluongsp") int soluong, @RequestParam("tennguoidung") String tennguoidung) {
+    public String showFormForAddThanhToan(Model theModel
+//            , @RequestParam("giohangId") int theId,
+//            @RequestParam("soluongsp") int soluong, @RequestParam("tennguoidung") String tennguoidung
+    ) {
+        String tennguoidung = DumpService.isAnony()?"0": DumpService.getUserName();
+
         if (tennguoidung.equals("0")) {
             // tạo 3 model object gửi cho muangay jsp
             KhachHang khachHang = new KhachHang();
@@ -157,14 +174,19 @@ public class ThanhToanController {
             theModel.addAttribute("hoadonId", hoadonId);
 
             // trả về  model object giỏ hàng cho muangay jsp
-            GioHang gioHang = gioHangService.getGioHang(theId);
+            GioHang gioHang = DumpService.getCacheBySessionID(DumpService.getSessionID()).giohang;
             theModel.addAttribute("giohangs", gioHang);
-            theModel.addAttribute("giohangId", theId);
+            theModel.addAttribute("giohangId", gioHang.getMaghh());
             theModel.addAttribute("tennguoidung", tennguoidung);
-            if (soluong > 0) {
-                double tonggia = sanPhamTrongGioHangService.TongGiaGioHang(theId);
-                theModel.addAttribute("tonggia", tonggia);
-                
+            if (gioHang.getSanPhamTrongGioHangs().size() > 0) {
+//                double tonggia = sanPhamTrongGioHangService.TongGiaGioHang(theId);
+
+                double price = 0;
+                for(int i=0;i< gioHang.getSanPhamTrongGioHangs().size();i++){
+                    SanPhamTrongGioHang sp =  gioHang.getSanPhamTrongGioHangs().get(i);
+                    price += sp.getGiaSanPham()*sp.getSoLuong();
+                }
+                theModel.addAttribute("tonggia", price);
             }
             return "muangay";
         } // da dang nhap thanh cong
@@ -173,7 +195,7 @@ public class ThanhToanController {
             KhachHang khachHang = khachHangService.getKhachHangByName(tennguoidung);
             theModel.addAttribute("khachhang", khachHang);
             int idhk = khachHang.getMakh();
-            System.out.println("---------------------khachhanb id" + idhk);      
+            System.out.println("---------------------khachhanb id" + idhk);
             GiaoHang giaoHang = new GiaoHang();
             HoaDon hoaDon = new HoaDon();
             theModel.addAttribute("giaohang", giaoHang);
@@ -187,15 +209,21 @@ public class ThanhToanController {
             theModel.addAttribute("hoadonId", hoadonId);
 
             // trả về  model object giỏ hàng cho muangay jsp
-            GioHang gioHang = gioHangService.getGioHang(theId);
+            GioHang gioHang = DumpService.getCacheBySessionID(DumpService.getSessionID()).giohang;//gioHangService.getGioHang(theId);
             theModel.addAttribute("giohangs", gioHang);
-            theModel.addAttribute("giohangId", theId);
+            theModel.addAttribute("giohangId", gioHang.getMaghh());
             theModel.addAttribute("tennguoidung", tennguoidung);
-            if (soluong > 0) {
-                double tonggia = sanPhamTrongGioHangService.TongGiaGioHang(theId);
-                theModel.addAttribute("tonggia", tonggia);
-               
+            if (gioHang.getSanPhamTrongGioHangs().size() > 0) {
+//                double tonggia = sanPhamTrongGioHangService.TongGiaGioHang(theId);
+                double price = 0;
+                for(int i=0;i< gioHang.getSanPhamTrongGioHangs().size();i++){
+                    SanPhamTrongGioHang sp =  gioHang.getSanPhamTrongGioHangs().get(i);
+                    price += sp.getGiaSanPham()*sp.getSoLuong();
+                }
+                theModel.addAttribute("tonggia", price);
+
             }
+
              return "muangay";
         }
         

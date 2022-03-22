@@ -147,71 +147,8 @@
                                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8576299626693!2d106.68530841472652!3d10.822205392290448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1594619602362!5m2!1svi!2s"
                                                             width="90%" height="800px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                                                 </div>
-                                                <footer>
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                <div class="box-footer info-contact">
-                                                                    <h3>Thông tin liên hệ</h3>
-                                                                    <div class="content-contact">
-                                                                        <p>Website chuyên cung cấp thiết bị mạng hàng đầu Việt Nam</p>
-                                                                        <p>
-                                                                            <strong>Địa chỉ:</strong>28 đường số 1 tphcm
-                                                                        </p>
-                                                                        <p>
-                                                                            <strong>Email: </strong> maihuy2882000@gmail.com
-                                                                        </p>
-                                                                        <p>
-                                                                            <strong>Điện thoại: </strong> 0981074xxx
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                <div class="box-footer info-contact">
-                                                                    <h3>Thông tin khác</h3>
-                                                                    <div class="content-list">
-                                                                        <ul>
-                                                                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách bảo mật</a></li>
-                                                                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách đổi trả</a></li>
-                                                                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Phí vẫn chuyển</a></li>
-                                                                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Hướng dẫn thanh toán</a></li>
-                                                                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Chương trình khuyến mãi</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                                                <div class="box-footer info-contact">
-                                                                    <h3>Form liên hệ</h3>
-                                                                    <div class="content-contact">
-                                                                        <form action="/" method="GET" role="form">
-                                                                            <div class="row">
-                                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                    <input type="text" name="" id="" class="form-control" placeholder="Họ và Tên">
-                                                                                </div>
-                                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                                                                                    <input type="email" name="" id="" class="form-control" placeholder="Địa chỉ mail">
-                                                                                </div>
-                                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                                                                                    <input type="text" name="" id="" class="form-control" placeholder="Số điện thoại">
-                                                                                </div>
-                                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                    <input type="text" name="" id="" class="form-control" placeholder="Tiêu đề">
-                                                                                </div>
-                                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                                                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-                                                                                </div>
-                                                                            </div>
-                                                                            <button type="submit" class="btn-contact">Liên hệ ngay</button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </footer>
+                                                <%--                        footer                    --%>
+                                                <%@ include file="footer.jsp" %>
                                                 <div class="modal fade" id="btnmodal" tabindex="-1" role="dialog" aria-hidden="true">
                                                     <div class="modal-content modal-dialog">
                                                         <div class="modal-header">

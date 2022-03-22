@@ -7,8 +7,7 @@ package com.mycompany.dao;
 
 import com.mycompany.entity.GiaoHang;
 import com.mycompany.entity.HoaDon;
-import com.mycompany.entity.SanPham;
-import com.mycompany.entity.ThongTinSanPham;
+
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -42,7 +41,14 @@ public class GiaoHangDaoImpl implements GiaoHangDao{
             Session currentSession = sessionFactory.getCurrentSession();
            GiaoHang giaoHang = currentSession.get(GiaoHang.class, theId);
             currentSession.delete(giaoHang);
-    } 
+    }
+
+    @Override
+    public void saveGiaoHang(GiaoHang giaoHang) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.saveOrUpdate(giaoHang);
+    }
+
     @Override
     public GiaoHang getGiaoHang(int id) {
           Session currentSession = sessionFactory.getCurrentSession();
