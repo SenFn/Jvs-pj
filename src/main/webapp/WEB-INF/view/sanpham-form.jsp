@@ -69,11 +69,11 @@
                                                 <a href="#">Tài Khoản</a>
                                                 <ul>
                                                     <li><a href="<%=request.getContextPath()%>/dangky">Đăng ký</a></li>
-                                                    <li><a href="<%=request.getContextPath()%>/giohang.jsp">Giỏ Hàng</a></li>
-                                                    <li><a href="<%=request.getContextPath()%>/doimatkhau.jsp">Đổi mật khẩu</a></li>
+                                                    <li><a href="<%=request.getContextPath()%>/giohang">Giỏ Hàng</a></li>
+                                                    <li><a href="<%=request.getContextPath()%>/doimatkhau">Đổi mật khẩu</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="<%=request.getContextPath()%>/lienhe.jsp">Liên hệ</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/lienhe">Liên hệ</a></li>
                                         </ul>
                                         <div class="clear"></div>
                                     </div>
@@ -94,7 +94,7 @@
                                     <c:url var="saveUrl" value="/sanpham/saveSanPham" />
 
 
-                                    <form  method="POST" action="${pageContext.request.contextPath}/sanpham/saveSanPham?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
+                                    <form  method="POST" action="${pageContext.request.contextPath}/sanpham/saveSanPham?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data" id="formSaveProduct">
                                         
                                         <%--
                                        This line is very important. Without this line, we'd actually lose context or we actually lose the id of the
@@ -103,37 +103,55 @@
                                         --%>
                                         <table>
                                             <tr>
-
+                                                <input type="hidden" name="id" value="${sanpham.masp}"/>
                                                 <td><label name="tenSanPham">--Tên sản phẩm:</label></td>
-                                                <td><input type="text" name="tenSanPham"/></td>
+                                                <td><input type="text" name="tenSanPham" value="${sanpham.tenSanPham}"/></td>
                                             </tr>
 
                                             <tr>
 
                                                 <th>--Hình ảnh: </th>
-                                                <td><input type="file" name="file" /></td>
+                                                <td><input type="file" name="file"/></td>
                                             </tr>
                                             <tr>
 
                                                 <td><label  name="loaiSanPham">--Loại sản phầm</label></td>
-                                                <td  style="width: 91%"><input type="text" name="loaiSanPham"/></td>
+                                                <td  style="width: 91%"><input type="text" name="loaiSanPham" value="${sanpham.loaiSanPham}"/></td>
 
                                             </tr>
                                             <tr>
 
                                                 <td><label name="giaSanPham">--Giá: </label></td>
-                                                <td><input type="text"  name="giaSanPham"/></td>
+                                                <td><input type="text"  name="giaSanPham" value="${sanpham.giaSanPham}"/></td>
                                             </tr>
                                             <tr>
 
                                                 <td><label name="trangThai">--Trạng thái: </label></td>
-                                                <td><input type="number" name="trangThai" min="0" max="1" /></td>
+                                                <td><input type="number" name="trangThai" min="0" max="1" value="${sanpham.trangThai}"/></td>
                                             </tr>
 
                                             <tr>
 
                                                 <td><label name="soLuongTrongKho">--Hàng Trong Kho: </label></td>
-                                                <td><input type="number" name="soLuongTrongKho"  min="1" max="100" /></td>
+                                                <td><input type="number" name="soLuongTrongKho"  min="1" max="100" value="${sanpham.soLuongTrongKho}" /></td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td><label name="nhaCungCap">--Nhà cung cấp: </label></td>
+                                                <td><input type="text" name="nhaCungCap"  min="1" max="100" value="${sanpham.thongTinSanPhams.nhaCungCap}" /></td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td><label name="moTa">--Mô Tả: </label></td>
+                                                <td><textarea rows="4" cols="50" name="mota" form="formSaveProduct">${sanpham.thongTinSanPhams.moTa}</textarea></td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td><label name="baoHanh">--Bảo Hành: </label></td>
+                                                <td><input type="text" name="baohanh"  min="1" max="100" value="${sanpham.thongTinSanPhams.baoHanh}" /></td>
                                             </tr>
                                         </table>
 

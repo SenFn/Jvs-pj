@@ -56,9 +56,9 @@ public class ThongTinSanPham {
     private String moTa;
     @Column(name = "bao_hanh")
     private String baoHanh;
-//    @Column(name = "id")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private int id;
+    @Column(name = "masp")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     public ThongTinSanPham() {
 
@@ -150,9 +150,18 @@ public class ThongTinSanPham {
         this.baoHanh = baoHanh;
     }
 
-   
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return this.id;
+    }
     public double getGiaSanPham() {
         return giaSanPham;
+    }
+    public void setGiaSanPham(double giaSanPham) {
+        this.giaSanPham = giaSanPham;
     }
 
 }

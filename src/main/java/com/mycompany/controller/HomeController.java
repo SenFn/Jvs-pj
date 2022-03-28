@@ -138,7 +138,28 @@ public class HomeController {
 //--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/lienhe")
-    public String kh() {
+    public String kh(Model model) {
+        //check is user or anony
+        String name = DumpService.getUserName();
+        int id = -1;
+        if(DumpService.isAnony()){
+            name = "0";
+        }
+
+        model.addAttribute("tennguoidung", name);
+        GioHang gioHang = null;
+        String sessionID = DumpService.getSessionID();
+        if(sessionID == null){
+            return "index";
+        }else {
+            gioHang = DumpService.getCacheBySessionID(sessionID).giohang;
+        }
+
+        model.addAttribute("giohang", gioHang);
+        // trả về số lượng sản phẩm
+        int soluongsanpham = gioHang != null?gioHang.getSanPhamTrongGioHangs().size():0;
+
+        model.addAttribute("soluongsanpham", soluongsanpham);
         return "lienhe";
     }
 
@@ -150,7 +171,14 @@ public class HomeController {
 //--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/homeadmin")
-    public String showHomePage() {
+    public String showHomePage(Model model) {
+        //check is user or anony
+        String name = DumpService.getUserName();
+        if(DumpService.isAnony()){
+            name = " Admin ";
+        }
+
+        model.addAttribute("tennguoidung", name);
         return "homeadmin";
     }
 //--------------------------------------------------------------------------------------------------------------------------

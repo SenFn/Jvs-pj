@@ -11,6 +11,7 @@ import com.mycompany.entity.SanPham;
 import com.mycompany.entity.ThongTinSanPham;
 import java.io.InputStream;
 
+import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import javax.transaction.Transactional;
 import org.apache.commons.io.IOUtils;
 
 //import org.hibernate.Query;
+import org.codehaus.plexus.util.Base64;
 import  org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -63,12 +65,23 @@ public class SanPhamDaoimpl implements SanPhamDao{
     public void saveSanPham(SanPham sanPham,InputStream inputStream)  {
          try {
          Session currentSession = sessionFactory.getCurrentSession();
-           if(inputStream!=null)
+            if(inputStream!=null)
             {
-               byte[] bytes = IOUtils.toByteArray(inputStream);              
+                byte[] bytes = IOUtils.toByteArray(inputStream);
                 sanPham.setImgSp(bytes);
+                sanPham.getThongTinSanPhams().setImgtt(bytes);
+                currentSession.saveOrUpdate(sanPham);
+                if(sanPham.getMasp() != sanPham.getThongTinSanPhams().getId()){
+                    sanPham.getThongTinSanPhams().setId(sanPham.getMasp());
+                    saveSanPham(sanPham,null);
+                }
+            }else {
+                String imgString = sanPham.getThongTinSanPhams().getImgtt();
+                byte[] img = Base64.decodeBase64(new String(imgString).getBytes("UTF-8"));
+                sanPham.setImgSp(img);
+                currentSession.saveOrUpdate(sanPham);
             }
-         currentSession.saveOrUpdate(sanPham);        
+
            } catch (Exception e) {
             e.printStackTrace();
         }

@@ -176,6 +176,14 @@ public class GioHangController {
 //            double tonggia = sanPhamTrongGioHangService.TongGiaGioHang(theId);
 //            theModel.addAttribute("tonggia", tonggia);
 //        }
+        //check is user or anony
+        String name = DumpService.getUserName();
+        int id = -1;
+        if(DumpService.isAnony()){
+            name = "0";
+        }
+
+        theModel.addAttribute("tennguoidung", name);
         GioHang giohang = DumpService.getCacheBySessionID(DumpService.getSessionID()).giohang;
         theModel.addAttribute("giohangs", giohang);
         theModel.addAttribute("soluongsp", giohang != null?giohang.getSanPhamTrongGioHangs().size():0 );

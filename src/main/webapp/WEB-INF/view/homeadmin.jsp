@@ -82,7 +82,7 @@
                         <div class="col-lg-12 ">
                            
                             <div class="alert alert-info">
-                                <strong>Chào mừng Huy/Len/Loc </strong> đã vào hệ thống quản lý của website H2L
+                                Chào mừng ${tennguoidung} trở lại.
                             </div>
 
                         </div>

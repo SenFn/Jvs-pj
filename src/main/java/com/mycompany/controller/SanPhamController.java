@@ -13,6 +13,8 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.http.Part;
+
+import com.mycompany.service.ThongTinSanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +35,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class SanPhamController {
     @Autowired
     private SanPhamService sanPhamService;
+    private ThongTinSanPhamService thongTinSanPhamService;
  //--------------------------------------------------------------------------------------------------------------------------   
     @GetMapping("/list")
     public String ListSanPham(Model model) {
@@ -58,20 +61,30 @@ public class SanPhamController {
 //        return "redirect:/sanpham/list";
 //    }
     @RequestMapping(value = "/saveSanPham", method = {RequestMethod.GET,RequestMethod.POST})
-    public String savePerson(@RequestParam("file") MultipartFile file,
+    public String savePerson(@RequestParam("file") MultipartFile file, @RequestParam("id") int id,
              @RequestParam("tenSanPham") String tensanpham, @RequestParam("loaiSanPham") String loaiSanPham, @RequestParam("giaSanPham") double giaSanPham,
-             @RequestParam("trangThai") int trangThai, @RequestParam("soLuongTrongKho") int soLuongTrongKho) throws IOException, SQLException {
+             @RequestParam("trangThai") int trangThai, @RequestParam("soLuongTrongKho") int soLuongTrongKho,
+             @RequestParam("nhaCungCap") String nhaCungCap,@RequestParam("mota") String mota, @RequestParam("baohanh") String baohanh) throws IOException, SQLException {
         ThongTinSanPham thongTinSanPham = null;
         SanPham sanPham = new SanPham(tensanpham, loaiSanPham, giaSanPham, trangThai, soLuongTrongKho);
         InputStream inputStream = null;
+        sanPham.setMasp(id);
         if (sanPham.getMasp() != 0) {
             thongTinSanPham = sanPhamService.getThongTinSanPham(sanPham.getMasp());
         }
-          if (file != null) {
+          if (file.getSize() != 0) {
             // obtains input stream of the upload file
             inputStream = file.getInputStream();
            
         }
+          if(thongTinSanPham == null){
+              thongTinSanPham = new ThongTinSanPham();
+              thongTinSanPham.setTenSanPham(tensanpham);
+              thongTinSanPham.setGiaSanPham(giaSanPham);
+          }
+        thongTinSanPham.setNhaCungCap(nhaCungCap);
+          thongTinSanPham.setMoTa(mota);
+          thongTinSanPham.setBaoHanh(baohanh);
         sanPham.setThongTinSanPhams(thongTinSanPham);
         sanPhamService.saveSanPham(sanPham, inputStream);
         return "redirect:/sanpham/list";

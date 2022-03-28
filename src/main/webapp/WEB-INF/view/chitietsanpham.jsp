@@ -14,8 +14,8 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        </<script type="text/javascript">
+        <head>
+        <script type="text/javascript">
 
         </script>
         <!-- Required meta tags -->
@@ -148,7 +148,7 @@
                                                                                 <!-- class gio hang -->
                                                                                 <span><c:out value="${soluongsanpham}"/></span>
                                                                             </div>
-                                                                            <div class="info-cart">                                
+                                                                            <div class="info-cart">
                                                                                 <p>Giỏ hàng</p>
                                                                                 <c:if test="${tennguoidung != '0'}">
                                                                                     <span>Người Dùng: <c:out value="${tennguoidung}"/></span>
@@ -160,10 +160,22 @@
                                                                             <span class="clear"></span>
                                                                         </a>
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="card">
+
+                                                        <div class="main-menu-header">
+                                                            <div class="container">
+
+                                                                <%--menubar--%>
+                                                                <%@ include file="menu.jsp" %>
+
+
+                                                            </div>
+                                                        </div>
+                                            </header>
+                                                        <div class="card" style="width: 50%;  margin:0 auto;">
                                                             <div class="container-fliud">
                                                                 <!---------------------------------------------------------------------------------------------------------------------------->
 
@@ -289,8 +301,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="card"></div>
-                                                <div class="card">
+                                                <div class="card" style="width: 50%;  margin:0 auto;">
                                                     <div class="container-fluid">
                                                         <h3>Thông tin chi tiết về sản phẩm</h3>
                                                         <div class="row">

@@ -94,14 +94,22 @@
                                                             <div class="col-6 col-xs-6 col-sm-6 col-md-3 col-lg-3 order-md-2 order-1" style="text-align: right">
                                                                 <a href="#" class="icon-cart">
                                                                     <div class="icon" >
-                                                                        <a href="<%=request.getContextPath()%>/giohang.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
+                                                                        <a href="${giohanglistUrl}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                                                                         <!-- class gio hang -->
-                                                                        <span>1</span>
+                                                                        <span><c:out value="${soluongsanpham}"/></span>
                                                                     </div>
                                                                     <div class="info-cart">
                                                                         <p>Giỏ hàng</p>
-                                                                        <span>20.990.000₫đ</span>
+                                                                        <c:if test="${tennguoidung != '0'}">
+                                                                            <span>Người Dùng: <c:out value="${tennguoidung}"/></span>
+                                                                        </c:if>
+                                                                        <c:if test="${tennguoidung == '0'}">
+                                                                            <span>Người Dùng: Chưa Đăng Nhập </span>
+                                                                        </c:if>
+
                                                                     </div>
+
                                                                     <span class="clear"></span>
                                                                 </a>
                                                             </div>
@@ -110,25 +118,9 @@
                                                 </div>
                                                 <div class="main-menu-header">
                                                     <div class="container">
-                                                        <div id="nav-menu">
-                                                            <ul>
-                                                                <li class="current-menu-item"><a href="<%=request.getContextPath()%>/index.jsp">Trang chủ</a></li>
-                                                                <li><a href="<%=request.getContextPath()%>/gioithieu.jsp">Giới thiệu</a></li>
-                                                                <li>
-                                                                    <a href="#">Sản phẩm</a>
-                                                                    <ul>
-                                                                        <li><a href="#">Máy tính bàn</a></li>
-                                                                        <li><a href="#">Macbook</a></li>
-                                                                        <li><a href="#">Laptop</a></li>
-                                                                        <li><a href="#">Sản phẩm khác</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li><a href="#">Tin tức</a></li>
-                                                                <li><a href="#">Tuyển dụng</a></li>
-                                                                <li><a href="<%=request.getContextPath()%>/lienhe.jsp">Liên hệ</a></li>
-                                                            </ul>
-                                                            <div class="clear"></div>
-                                                        </div>
+                                                        <%--menubar--%>
+                                                        <%@ include file="menu.jsp" %>
+
                                                     </div>
                                                 </div>
                                             </header>
@@ -144,7 +136,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="map text-center">
-                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8576299626693!2d106.68530841472652!3d10.822205392290448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1594619602362!5m2!1svi!2s"
+                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15673.682645064993!2d106.785103!3d10.855575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb6cf10bb7d719327!2sHUTECH%20University%20-%20E%20Campus%20(SHTP)!5e0!3m2!1svi!2sus!4v1625553645545!5m2!1svi!2sus"
                                                             width="90%" height="800px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                                                 </div>
                                                 <%--                        footer                    --%>
