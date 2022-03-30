@@ -13,7 +13,7 @@
         <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <title>Website bán PC/laptop</title>
+                    <title>Web bán thiết bị mạng</title>
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i">
                         <!-- google font web -->
                         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/libs/bootstrap/css/bootstrap.min.css">
@@ -126,7 +126,7 @@
                                                         <div class="row">
                                                             <div class="col-6 col-xs-6 col-sm-6 col-md-3 col-lg-3 order-md-0 order-0">
                                                                 <div class="logo">
-                                                                    <a <a href="<%=request.getContextPath()%>/index"><img src="${pageContext.request.contextPath}/resources/images/logo6.png" alt=""></a>
+                                                                    <a href="<%=request.getContextPath()%>/index"><img src="${pageContext.request.contextPath}/resources/images/logo6.png" alt=""></a>
                                                                     <h1>Website bán hàng</h1>
                                                                 </div>
                                                             </div>
@@ -232,15 +232,9 @@
                                                                         <h3>Danh mục sản phẩm</h3>
                                                                         <div class="content-cat">
                                                                             <ul>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Router</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Hub chuyển đổi</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Hub Mạng</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Hub 3G</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Hub 4G</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Bộ Tăng sóng</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Chuột</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Tai nghe</a></li>
-                                                                                <li><i class="fa fa-angle-right"></i> <a href="#">Sản phẩm khác</a></li>
+                                                                                <li><i class="fa fa-angle-right"></i> <a href="<%=request.getContextPath()%>/sanpham?type=router">Router</a></li>
+                                                                                <li><i class="fa fa-angle-right"></i> <a href="<%=request.getContextPath()%>/sanpham?type=hub">Hub</a></li>
+                                                                                <li><i class="fa fa-angle-right"></i> <a href="<%=request.getContextPath()%>/sanpham?type=other">Sản phẩm khác</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -306,14 +300,14 @@
                                                                     <h2 class="title-product">
                                                                         <a href="#" class="title">Sản phẩm nổi bật</a>
                                                                         <div class="bar-menu"><i class="fa fa-bars"></i></div>
-                                                                        <div class="list-child">
-                                                                            <ul>
-                                                                                <li><a href="#">Máy tính bàn</a></li>
-                                                                                <li><a href="#">Macbook</a></li>
-                                                                                <li><a href="#">Laptop</a></li>
-                                                                                <li><a href="#">Phụ kiện</a></li>
-                                                                            </ul>
-                                                                        </div>
+<%--                                                                        <div class="list-child">--%>
+<%--                                                                            <ul>--%>
+<%--                                                                                <li><a href="#">Máy tính bàn</a></li>--%>
+<%--                                                                                <li><a href="#">Macbook</a></li>--%>
+<%--                                                                                <li><a href="#">Laptop</a></li>--%>
+<%--                                                                                <li><a href="#">Phụ kiện</a></li>--%>
+<%--                                                                            </ul>--%>
+<%--                                                                        </div>--%>
                                                                         <div class="clear"></div>
                                                                     </h2>
                                                                     <!-- -------------------------SẢN PHẦM ĐƯỢC THÊM AUTO Ở ĐÂY  ---------------------------------- -->
@@ -350,12 +344,12 @@
 
 
                                                                         <div class="content-product-box" style="display: inline-block; align-content: center">
-
+                                                                            <div style="width: 200px;">
                                                                             <div class="item-product ">
                                                                                 <div class="thumb">
                                                                                     <a href="${thongtinsanphamUrl}" ><img src="data:image/png;base64,${sanpham.imgSp}" style="width: 180px; height: 180px"></a>
-                                                                                    <span class="sale">Giảm <br>10%</span>
-                                                                                    <div class="action">
+<%--                                                                                    <span class="sale" style="right:20px">Giảm <br>10%</span>--%>
+                                                                                    <div class="action" style="width:180px">
                                                                                         <a href="#" class="buy"><i class="fa fa-cart-plus"></i> Mua ngay</a>
                                                                                         <a href="javascript:AlertIt();" class="like"><i class="fa fa-heart"></i> Yêu thích</a>
                                                                                         <div class="clear"></div>
@@ -364,8 +358,8 @@
                                                                                 <div class="info-product " style="width: 180px; height: 200px">
                                                                                     <h4><a href="${thongtinsanphamUrl}" ><c:out value="${sanpham.tenSanPham}"/></a></h4>
                                                                                     <div class="price">
-                                                                                        <span class="price-current"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sanpham.giaSanPham}" />đ</span>
-                                                                                        <span class="price-old">990.000₫</span>
+                                                                                        <span class="price-current"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sanpham.giaSanPham}" /> vnđ</span>
+<%--                                                                                        <span class="price-old">990.000₫</span>--%>
                                                                                     </div>
                                                                                     <a href="${thongtinsanphamUrl}" class="view-more">Xem chi tiết</a>
 
@@ -373,7 +367,7 @@
 
                                                                             </div>
                                                                         </div>
-
+                                                                        </div>
                                                                     </c:forEach>
                                                                 </div>
                                                                 <!-- ----------------------------------------------------- ---------------------------------- -->

@@ -33,7 +33,7 @@
                                                 <ul>
                                                         <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách bảo mật</a></li>
                                                         <li><a href="#"><i class="fa fa-angle-double-right"></i> Chính sách đổi trả</a></li>
-                                                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Phí vẫn chuyển</a></li>
+                                                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Phí vận chuyển</a></li>
                                                         <li><a href="#"><i class="fa fa-angle-double-right"></i> Hướng dẫn thanh toán</a></li>
                                                         <li><a href="#"><i class="fa fa-angle-double-right"></i> Chương trình khuyến mãi</a></li>
                                                 </ul>

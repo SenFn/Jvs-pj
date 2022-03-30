@@ -16,6 +16,7 @@ import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.sql.rowset.serial.SerialBlob;
@@ -181,6 +182,60 @@ public class HomeController {
         model.addAttribute("tennguoidung", name);
         return "homeadmin";
     }
+
+    @GetMapping("/sanpham")
+    public String showSanpham(Model model, @RequestParam("type") String type) {
+        //get list sanpham
+        List<SanPham> sanPham = sanPhamService.getSanPhams();
+
+        if(type.equals("router")){
+            List<SanPham> sanPhamType = new ArrayList<>();
+            for(int i=0;i<sanPham.size();i++){
+                if(sanPham.get(i).getLoaiSanPham().equals("router Wifi"))
+                    sanPhamType.add(sanPham.get(i));
+            }
+            sanPham = sanPhamType;
+        }else if(type.equals("hub")){
+            List<SanPham> sanPhamType = new ArrayList<>();
+            for(int i=0;i<sanPham.size();i++){
+                if(sanPham.get(i).getLoaiSanPham().equals("hub"))
+                    sanPhamType.add(sanPham.get(i));
+            }
+            sanPham = sanPhamType;
+        }else if(type.equals("other")){
+            List<SanPham> sanPhamType = new ArrayList<>();
+            for(int i=0;i<sanPham.size();i++){
+                if(sanPham.get(i).getLoaiSanPham().equals("other"))
+                    sanPhamType.add(sanPham.get(i));
+            }
+            sanPham = sanPhamType;
+        }
+
+        model.addAttribute("sanphams", sanPham);
+
+        //check is user or anony
+        String name = DumpService.getUserName();
+        int id = -1;
+        if(DumpService.isAnony()){
+            name = "0";
+        }
+
+        model.addAttribute("tennguoidung", name);
+        GioHang gioHang = null;
+        String sessionID = DumpService.getSessionID();
+        if(sessionID == null){
+            return "index";
+        }else {
+            gioHang = DumpService.getCacheBySessionID(sessionID).giohang;
+        }
+
+        model.addAttribute("giohang", gioHang);
+        // trả về số lượng sản phẩm
+        int soluongsanpham = gioHang != null?gioHang.getSanPhamTrongGioHangs().size():0;
+
+        model.addAttribute("soluongsanpham", soluongsanpham);
+        return "sanpham";
+    }
 //--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/search")
@@ -188,11 +243,19 @@ public class HomeController {
                                     Model theModel) {
         List<SanPham> sanPham = sanPhamService.searchSanPhams(theSearchName);
         theModel.addAttribute("sanphams", sanPham);
+
+        //check is user or anony
+        String name = DumpService.getUserName();
+        if(DumpService.isAnony()){
+            name = "0";
+        }
+        theModel.addAttribute("tennguoidung", name);
+        theModel.addAttribute("searchString", theSearchName);
      //   int soluongsanpham = sanPhamTrongGioHangService.countGioHang(giohangId);
     //    theModel.addAttribute("soluongsanpham", soluongsanpham);
        // theModel.addAttribute("giohangId", giohangId);
        // theModel.addAttribute("tennguoidung", name);
-        return "index";
+        return "sanpham";
     }
 }
 //--------------------------------------------------------------------------------------------------------------------------

@@ -40,25 +40,53 @@
 
                                                                     <div id="nav-menu">
                                                                         <ul>
-                                                                            <c:url var="homebackUrl" value="/homeback">
+                                                                            <li><a href="#">Cửa hàng</a></li>
 
-                                                                                <c:param name="giohangId" value="${giohangId}" />
-                                                                                <c:param name="tennguoidung"   value="${tennguoidung}" />  
-                                                                            </c:url>
-                                                                            <li><a href="${homebackUrl}">Cửa hàng</a></li>
-                                                                            <li><a href="#" data-toggle="modal" data-target="#btnmodal">Đăng nhập</a></li>
+                                                                            <c:url var="dangnhapUrl" value="/showMyLoginPage" />
+                                                                            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                                                                <li><a  href="${dangnhapUrl}">Đăng nhập</a></li>
+                                                                            </c:if>
                                                                             <li>
                                                                                 <a href="#">Tài Khoản</a>
                                                                                 <ul>
-                                                                                    <li><a href="<%=request.getContextPath()%>/dangky.jsp">Đăng ký</a></li>
-                                                                                    <li><a href="<%=request.getContextPath()%>/giohang.jsp">Giỏ Hàng</a></li>
-                                                                                    <li><a href="<%=request.getContextPath()%>/doimatkhau.jsp">Đổi mật khẩu</a></li>
+                                                                                    <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                                                                        <li><a href="${pageContext.request.contextPath}/register/showRegistrationForm">Đăng ký</a></li>
+                                                                                    </c:if>
+
+                                                                                    <c:url var="giohanglistUrl" value="/giohang/list" >
+                                                                                        <c:param name="giohangId" value="${giohangId}" />
+                                                                                        <c:param name="soluongsp" value="${soluongsanpham}" />
+                                                                                        <c:param name="tennguoidung"   value="${tennguoidung}" />
+                                                                                    </c:url>
+                                                                                    <li><a href="${giohanglistUrl}">Giỏ Hàng</a></li>
+
+                                                                                    <li>
+                                                                                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                                                                        <a href="${pageContext.request.contextPath}/info">Thông tin</a>
+                                                                                        </c:if>
+                                                                                        <c:url value="/logout" var="logoutUrl" />
+                                                                                        <form id="logout" action="${logoutUrl}" method="post" >
+                                                                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                                                        </form>
+                                                                                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                                                                        <a href="javascript:document.getElementById('logout').submit()">Đăng Xuất</a>
+                                                                                        </c:if>
                                                                                 </ul>
                                                                             </li>
-                                                                            <li><a href="<%=request.getContextPath()%>/lienhe.jsp">Liên hệ</a></li>
+
+                                                                            <c:url var="lienhe" value="/lienhe" />
+
+                                                                            <li><a href="${lienhe}">Liên hệ</a></li>
+
+                                                                            <security:authorize access="hasAnyRole('ADMIN')">
+                                                                                <c:url var="homeadmin" value="/homeadmin" />
+                                                                                <li><a href="${homeadmin}">Admin</a></li>
+                                                                            </security:authorize>
+
                                                                         </ul>
                                                                         <div class="clear"></div>
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -69,26 +97,26 @@
                                                         <div class="row">
                                                             <div class="col-6 col-xs-6 col-sm-6 col-md-3 col-lg-3 order-md-0 order-0">
                                                                 <div class="logo">
-                                                                    <a <a href="<%=request.getContextPath()%>/index.jsp"><img src="images/logo6.png" alt=""></a>
+                                                                    <a href="<%=request.getContextPath()%>/index"><img src="${pageContext.request.contextPath}/resources/images/logo6.png" alt=""></a>
                                                                     <h1>Website bán hàng</h1>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 order-md-1 order-2">
                                                                 <div class="form-seach-product">
-                                                                    <form action="/" method="GET" role="form">
-                                                                        <select name="" id="input" class="form-control" required="required">
-                                                                            <option value="">Chọn danh mục</option>
-                                                                            <option value="1">Máy Tính Bàn</option>
-                                                                            <option value="2">MacBook</option>
-                                                                            <option value="3">Lap top</option>
-                                                                            <option value="4">Phụ kiện</option>
-                                                                        </select>
-                                                                        <div class="input-seach">
-                                                                            <input type="text" placeholder="Máy bàn / LapTop/MacBook..." name="s" id="" class="form-control">
-                                                                                <button type="submit" class="btn-search-pro"><i class="fa fa-search"> </i></button>
-                                                                        </div>
-                                                                        <div class="clear"></div>
-                                                                    </form>
+
+
+                                                                    <div class="input-seach">
+                                                                        <c:url var="search" value="/search">
+                                                                            <c:param name="giohangId" value="${giohangId}" />
+                                                                            <c:param name="tennguoidung"   value="${tennguoidung}" />
+                                                                        </c:url>
+                                                                        <form:form action="${search}" method="GET">
+                                                                            <input type="text" placeholder="Wifi/router/kích sóng wifi..." name="theSearchName"  class="form-control">
+                                                                            <button type="submit" class="btn-search-pro"><i class="fa fa-search"> </i></button>
+                                                                        </form:form>
+                                                                    </div>
+                                                                    <div class="clear"></div>
+
                                                                 </div>
                                                             </div>
                                                             <div class="col-6 col-xs-6 col-sm-6 col-md-3 col-lg-3 order-md-2 order-1" style="text-align: right">

@@ -6,12 +6,11 @@
                 <li class="current-menu-item"><a href="<%=request.getContextPath()%>/index">Trang chủ</a></li>
 <%--                <li><a href="<%=request.getContextPath()%>/gioithieu">Giới thiệu</a></li>--%>
                 <li>
-                        <a href="#">Sản phẩm</a>
+                        <a href="<%=request.getContextPath()%>/sanpham?type=all">Sản phẩm</a>
                         <ul>
-                                <li><a href="#">Router</a></li>
-                                <li><a href="#">Cáp Mạng</a></li>
-                                <li><a href="#">Hub mạng</a></li>
-                                <li><a href="#">Sản phẩm khác</a></li>
+                                <li><a href="<%=request.getContextPath()%>/sanpham?type=router">Router</a></li>
+                                <li><a href="<%=request.getContextPath()%>/sanpham?type=hub">Hub mạng</a></li>
+                                <li><a href="<%=request.getContextPath()%>/sanpham?type=other">Sản phẩm khác</a></li>
                         </ul>
                 </li>
                 <li><a href="#">Tin tức</a></li>

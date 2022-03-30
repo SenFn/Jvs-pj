@@ -16,7 +16,7 @@
 	<h2 style="text-align: center">Access Denied - You are not authorized to access this resource.</h2>
 	<hr>
 	<div style="text-align:center">
-		<a href="./" style="text-align: center">Back to Home Page</a>
+		<a href="<%=request.getContextPath()%>" style="text-align: center">Back to Home Page</a>
 	</div>
 	
 </body>

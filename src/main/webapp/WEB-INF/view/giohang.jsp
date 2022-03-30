@@ -82,25 +82,9 @@
                                                     </div>
                                                     <div class="main-menu-header">
                                                         <div class="container">
-                                                            <div id="nav-menu">
-                                                                <ul>
-                                                                    <li class="current-menu-item"><a href="<%=request.getContextPath()%>/index">Trang chủ</a></li>
-                                                                    <li><a href="<%=request.getContextPath()%>/gioithieu">Giới thiệu</a></li>
-                                                                    <li>
-                                                                        <a href="#">Sản phẩm</a>
-                                                                        <ul>
-                                                                            <li><a href="#">Máy tính bàn</a></li>
-                                                                            <li><a href="#">Macbook</a></li>
-                                                                            <li><a href="#">Laptop</a></li>
-                                                                            <li><a href="#">Sản phẩm khác</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li><a href="#">Tin tức</a></li>
-                                                                    <li><a href="#">Tuyển dụng</a></li>
-                                                                    <li><a href="<%=request.getContextPath()%>/lienhe">Liên hệ</a></li>
-                                                                </ul>
-                                                                <div class="clear"></div>
-                                                            </div>
+                                                            <%--menubar--%>
+                                                            <%@ include file="menu.jsp" %>
+
                                                         </div>
                                                     </div>
                                                 </header>
@@ -192,7 +176,7 @@
                                                                             </c:forEach>
 
 
-                                                                        </tbody>
+
                                                                     </table>
                                                                 </div>
 
@@ -217,15 +201,14 @@
                                                                                 <c:if test="${empty giohangs.sanPhamTrongGioHangs }">
                                                                                     <h3  style="text-align: center" >Giỏ Hàng Hiện Tại Trống</h3>
                                                                                 </c:if>
-                                                                            </div>
+                                                                                    </tbody>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <%--                        footer                    --%>
-                                                    <%@ include file="footer.jsp" %>
+
                                                 </div>
 
                                                 <div class="modal fade" id="btnmodal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -297,6 +280,12 @@
                                                     <script src="js/main.js"></script>
                                                     <div id="fb-root"></div>
                                                     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
+                                                </div>
+                                            </div>
+                                            </div>
                                                     <!-- bootstrap cua FB -->
                                                     </body>
+    <footer>    <%--                        footer                    --%>
+        <%@ include file="footer.jsp" %></footer>
+
                                                     </html>
