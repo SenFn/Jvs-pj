@@ -109,7 +109,7 @@
                                                             </c:forEach>
                                                         </c:if>         
                                                         <c:if test="${empty giohangs.sanPhamTrongGioHangs}">
-                                            <h1>haha</h1>
+
                                         </c:if>
 
                                         </tbody

@@ -14,6 +14,7 @@
           <element id="module-output" name="WebBanHang" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.mindrot:jbcrypt:0.4" />
           <element id="library" level="project" name="Maven: org.ehcache:ehcache:3.9.6" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />

@@ -27,6 +27,7 @@ com\mycompany\controller\SanPhamController.class
 com\mycompany\controller\thongTinSanPhamController.class
 com\mycompany\service\GioHangService.class
 com\mycompany\dao\SanPhamTrongGioHangDao.class
+com\mycompany\entity\CacheUser.class
 com\mycompany\service\GiaoHangServiceImpl.class
 com\mycompany\controller\HoaDonController.class
 com\mycompany\service\GioHangServiceImpl.class
@@ -45,6 +46,7 @@ com\mycompany\service\KhachHangService.class
 com\mycompany\service\SanPhamServiceImpl.class
 com\mycompany\entity\GioHang.class
 com\mycompany\controller\GiaoHangController.class
+com\mycompany\service\DumpService.class
 com\mycompany\config\AppConfig.class
 com\mycompany\controller\KhachHangController.class
 com\mycompany\entity\KhachHang.class

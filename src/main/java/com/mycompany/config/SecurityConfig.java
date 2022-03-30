@@ -30,17 +30,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	private DataSource securityDataSource;
-	
+
+	public static DataSource securityDataSource1;
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		// use jdbc authentication ... oh yeah!!!
 		
 		auth.jdbcAuthentication().dataSource(securityDataSource);
+		securityDataSource1 = securityDataSource;
 	}
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-            
+		securityDataSource1 = securityDataSource;
 //** matches zero or more 'directories' in a path
         http.authorizeRequests()
         //* matches zero or more characters

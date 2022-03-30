@@ -9,14 +9,14 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8">
-
+      <title>Register</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i">
                     <!-- google font web -->
                     <link href="${pageContext.request.contextPath}/resources/libs/bootstrap/css/bootstrap.min.css"  rel="stylesheet" type="text/css">
                         <script src="<c:url value='/resources/libs/jquery/jquery-3.5.0.min.js'/>"></script>
-                        <script src="<c:url value='/resources/libs/bootstrap/bootstrap.min.js'/>"></script>  
+                        <script src="<c:url value='/resources/libs/bootstrap/bootstrap.min.js'/>"></script>
                         <style>
                             html, body {
                                 width: 100%;
@@ -42,11 +42,11 @@
                             }
                         </style>
                         <script>
-                           
-                        </script>
-                        </head>
 
-                        <body>
+                        </script>
+</head>
+
+            <body>
 
                             <div>
 
@@ -59,17 +59,24 @@
 
                                         <div style="padding-top: 30px" class="panel-body">
                                             <div class="panel-heading">
-                                                <div class="panel-title text-center">Đăng ký người dùng mới</div>
+                                                <h1 class="panel-title text-center">Đăng ký</h1>
                                             </div>
                                             <!-- Registration Form -->
                                             <script>
                                                 submitForms = function () {
-                                                   
-                                                   alert("Đăng kí tài khoản thành công");
+                                                    let user = document.getElementById("userName").value;
+                                                    let pass = document.getElementById("password").value;
+                                                    let phone = document.getElementById("soDienThoaikh").value;
+                                                    let mail = document.getElementById("email").value;
+                                                    if(user == "" || user == null || pass == "" || pass == null || phone == "" || phone == null || mail == "" || mail == null){
+                                                        alert("Input not allow null!");
+                                                        return;
+                                                    }
+                                                    //alert("Đăng kí tài khoản thành công");
                                                     document.getElementById("form1").submit();
                                                 }
                                             </script>
-                                            <form:form  id="form1" action="${pageContext.request.contextPath}/register/processRegistrationForm" 
+                                            <form:form  id="form1" action="${pageContext.request.contextPath}/register/processRegistrationForm"
                                                        modelAttribute="crmUser"
                                                        class="form-horizontal" >
 
@@ -117,11 +124,20 @@
 
                                             </form:form>
                                             <!-- Register Button -->
-                                            <div style="margin-top: 10px" class="d-flex justify-content-center">						
+                                            <div style="margin-top: 10px" class="text-center d-flex justify-content-center">
                                                 <div class="col-sm-6">
                                                     <button onclick="submitForms()" class="btn btn btn-outline-primary btn-lg">Đăng ký</button>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="text-center p-t-115">
+                                        <span class="txt1">
+                                            Have an account?
+                                        </span>
+                                            <c:url var="dangnhapUrl" value="/showMyLoginPage" />
+                                            <a class="txt2" href="${dangnhapUrl}">
+                                                Login
+                                            </a>
                                         </div>
 
                                     </div>

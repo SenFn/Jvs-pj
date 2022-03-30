@@ -1,10 +1,73 @@
 <html>
 <body>
-<h3>Confirm register account</h3>
-<p>
-Ur account:<br />
-username:<b>${username}</b><br />
-password:<b>${password}</b>
-</p>
+<tbody><tr>
+    <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding:8px">
+        <table cellpadding="0" cellspacing="0" style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;border-collapse:collapse;width:100%">
+            <tbody><tr>
+                <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-top:24px;padding-bottom:24px">
+                    <table cellspacing="0" cellpadding="0" style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;border-collapse:collapse;width:100%">
+                        <tbody><tr>
+                            <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif">
+                                <a href="https://infinityfree.net/" style="color:#467fcf;text-decoration:none" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://infinityfree.net/&amp;source=gmail&amp;ust=1648719764530000&amp;usg=AOvVaw25NyeCXdd7vGKwE8dSnXAH">
+                                    <img height="34" alt="" style="line-height:100%;outline:0;text-decoration:none;vertical-align:baseline;font-size:0;border:0 none">
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </td>
+            </tr>
+            </tbody></table>
+        <div>
+            <table cellpadding="0" cellspacing="0" style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;border-collapse:collapse;width:100%;background:#fff;border-radius:3px;border:1px solid #f0f0f0">
+                <tbody><tr>
+                    <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif">
+                        <table cellpadding="0" cellspacing="0" style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;border-collapse:collapse;width:100%">
+                            <tbody><tr>
+                                <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding:40px 48px">
+                                    <p>Hi <a href="mailto:${email}" target="_blank">${email}</a>,</p>
+                                    <p>Thank you for signing up with HomeLess Store!
+                                        Your account will now be setup over the next few minutes and
+                                        this email contains all the information you will need in order to begin using your account.</p>
+                                    <p>Here are the details of your new account:</p>
+                                    <h2>Account Details</h2>
+                                    <p>Username: ${username}<br>
+                                        Password: (can be change in your client area)<br>
+
+                                    <h2>Get Support</h2>
+                                    <p>Do you need help in getting started or would you like to know more about what you can do with our order?
+                                        Check out our <a href="#" style="color:#467fcf;text-decoration:none" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://forum.infinityfree.net/docs&amp;source=gmail&amp;ust=1648719764530000&amp;usg=AOvVaw0HqnWq2UV-6ZPktuiqYMVy">knowledge base</a> for the answers to many common questions and issues!</p>
+                                    <p>Sen,<br>
+                                        HomeLess Store</p>
+
+
+
+                                </td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                </tbody></table>
+        </div>
+        <table cellspacing="0" cellpadding="0" style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;border-collapse:collapse;width:100%">
+            <tbody><tr>
+                <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-top:48px;padding-bottom:48px">
+                    <table cellspacing="0" cellpadding="0" style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;border-collapse:collapse;width:100%;color:#9eb0b7;text-align:center;font-size:13px">
+                        <tbody><tr>
+                            <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-right:24px;padding-left:24px">
+                                Have any questions about this email? Contact us <a href="#" style="color:#467fcf;text-decoration:none" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://forum.infinityfree.net&amp;source=gmail&amp;ust=1648719764530000&amp;usg=AOvVaw1vzZeti6KBViMq6I4aOFqs">HomeLess Store</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-top:16px">
+                                Copyright © 2022 HomeLess Store.
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </td>
+            </tr>
+            </tbody></table>
+    </td>
+</tr>
+</tbody>
 </body>
 </html>

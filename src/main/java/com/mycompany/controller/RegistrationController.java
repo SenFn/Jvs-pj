@@ -181,11 +181,12 @@ public class RegistrationController {
                 MimeMessageHelper helper = new MimeMessageHelper(msg, true, "UTF-8");
                 helper.setFrom("Administrator");
                 helper.setTo(emailAddress);
-                helper.setSubject("[Test Mail Service] Register success.");
+                helper.setSubject("[Test Mail Service] Your new HomeLess Store account has been created");
 
                 Map<String, Object> params = new HashMap<String, Object>();
                 params.put("username", name);
                 params.put("password", pass);
+                params.put("email", emailAddress);
 
 
                 String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "spring/emailRegistration.vm", "UTF-8", params);

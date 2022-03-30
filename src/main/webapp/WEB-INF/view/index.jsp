@@ -70,26 +70,36 @@
                                                                     <div id="nav-menu">
                                                                         <ul>
                                                                             <li><a href="#">Cửa hàng</a></li>
-                                                                                <c:url var="dangnhapUrl" value="/showMyLoginPage" />   
-                                                                            <li><a  href="${dangnhapUrl}">Đăng nhập</a></li>
+
+                                                                                <c:url var="dangnhapUrl" value="/showMyLoginPage" />
+                                                                            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                                                                <li><a  href="${dangnhapUrl}">Đăng nhập</a></li>
+                                                                            </c:if>
                                                                             <li>
                                                                                 <a href="#">Tài Khoản</a>
                                                                                 <ul>
-                                                                                    <li><a href="${pageContext.request.contextPath}/register/showRegistrationForm">Đăng ký</a></li>
+                                                                                    <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                                                                        <li><a href="${pageContext.request.contextPath}/register/showRegistrationForm">Đăng ký</a></li>
+                                                                                    </c:if>
+
                                                                                         <c:url var="giohanglistUrl" value="/giohang/list" >   
                                                                                             <c:param name="giohangId" value="${giohangId}" />
                                                                                             <c:param name="soluongsp" value="${soluongsanpham}" />
                                                                                             <c:param name="tennguoidung"   value="${tennguoidung}" />
                                                                                         </c:url>
                                                                                     <li><a href="${giohanglistUrl}">Giỏ Hàng</a></li>
+
                                                                                     <li>
+                                                                                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                                                                            <a href="${pageContext.request.contextPath}/info">Thông tin</a>
+                                                                                        </c:if>
                                                                                         <c:url value="/logout" var="logoutUrl" />
                                                                                         <form id="logout" action="${logoutUrl}" method="post" >
                                                                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                                                         </form>
                                                                                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                                                                                             <a href="javascript:document.getElementById('logout').submit()">Đăng Xuất</a>
-                                                                                        </c:if>                     
+                                                                                        </c:if>
                                                                                 </ul>
                                                                             </li>
 
