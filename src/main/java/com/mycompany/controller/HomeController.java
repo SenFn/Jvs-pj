@@ -17,6 +17,8 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.sql.rowset.serial.SerialBlob;
@@ -59,7 +61,13 @@ public class HomeController {
     public String Home(Model model) throws SQLException {
         //get list sanpham
         List<SanPham> sanPham = sanPhamService.getSanPhams();
-        model.addAttribute("sanphams", sanPham);
+
+        //get list new sp index 12
+        List<SanPham> sanPhamIndex = new ArrayList<>();
+        for(int i = sanPham.size() -1; i > sanPham.size() - 13;i--){
+            sanPhamIndex.add(sanPham.get(i));
+        }
+        model.addAttribute("sanphams", sanPhamIndex);
 
         //check is user or anony
         String name = DumpService.getUserName();
@@ -183,8 +191,50 @@ public class HomeController {
         return "homeadmin";
     }
 
+    //sort string name to alphabet "abcde*uck this project"
+    public List<SanPham> sortByName(List<SanPham> input){
+        Collections.sort(input, new Comparator() {
+            @Override
+            public int compare(Object sp1, Object sp2) {
+                //use instanceof to verify the references are indeed of the type in question
+                return ((SanPham)sp1).getTenSanPham()
+                        .compareTo(((SanPham)sp2).getTenSanPham());
+            }
+        });
+
+        return input;
+    }
+
+    //price increase
+    public List<SanPham> sortByPriceI(List<SanPham> input){
+        Collections.sort(input, new Comparator() {
+            @Override
+            public int compare(Object sp1, Object sp2) {
+                //use instanceof to verify the references are indeed of the type in question
+                return (new Double(((SanPham)sp1).getGiaSanPham()))
+                        .compareTo(((SanPham)sp2).getGiaSanPham());
+            }
+        });
+
+        return input;
+    }
+
+    //price decrease
+    public List<SanPham> sortByPriceD(List<SanPham> input){
+        Collections.sort(input, new Comparator() {
+            @Override
+            public int compare(Object sp1, Object sp2) {
+                //use instanceof to verify the references are indeed of the type in question
+                return (new Double(((SanPham)sp2).getGiaSanPham()))
+                        .compareTo(((SanPham)sp1).getGiaSanPham());
+            }
+        });
+
+        return input;
+    }
+
     @GetMapping("/sanpham")
-    public String showSanpham(Model model, @RequestParam("type") String type) {
+    public String showSanpham(Model model, @RequestParam("type") String type, @RequestParam(value = "orderBy", required = false) String sort ) {
         //get list sanpham
         List<SanPham> sanPham = sanPhamService.getSanPhams();
 
@@ -205,11 +255,28 @@ public class HomeController {
         }else if(type.equals("other")){
             List<SanPham> sanPhamType = new ArrayList<>();
             for(int i=0;i<sanPham.size();i++){
-                if(sanPham.get(i).getLoaiSanPham().equals("other"))
+                if(sanPham.get(i).getLoaiSanPham().equals("other") || sanPham.get(i).getLoaiSanPham().equals("router Wifi") != true || !sanPham.get(i).getLoaiSanPham().equals("hub")  != true)
                     sanPhamType.add(sanPham.get(i));
             }
             sanPham = sanPhamType;
         }
+
+        if(sort != null){
+            switch (sort){
+                case "name":
+                    sanPham = sortByName(sanPham);
+                    break;
+                case "priceI":
+                    sanPham = sortByPriceI(sanPham);
+                    break;
+                case "priceD":
+                    sanPham = sortByPriceD(sanPham);
+                    break;
+                default:
+                    break;
+            }
+        }
+
 
         model.addAttribute("sanphams", sanPham);
 
@@ -230,6 +297,7 @@ public class HomeController {
         }
 
         model.addAttribute("giohang", gioHang);
+        model.addAttribute("type", type);
         // trả về số lượng sản phẩm
         int soluongsanpham = gioHang != null?gioHang.getSanPhamTrongGioHangs().size():0;
 
@@ -239,11 +307,33 @@ public class HomeController {
 //--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/search")
-    public String searchPersons(@RequestParam("theSearchName") String theSearchName,
+    public String searchPersons(@RequestParam(value = "theSearchName", required = false) String theSearchName,
+                                @RequestParam(value = "orderBy", required = false) String sort ,
                                     Model theModel) {
+        if(theSearchName == null){
+            showSanpham(theModel, null,"all");
+        }
         List<SanPham> sanPham = sanPhamService.searchSanPhams(theSearchName);
+
+        if(sort != null){
+            switch (sort){
+                case "name":
+                    sanPham = sortByName(sanPham);
+                    break;
+                case "priceI":
+                    sanPham = sortByPriceI(sanPham);
+                    break;
+                case "priceD":
+                    sanPham = sortByPriceD(sanPham);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         theModel.addAttribute("sanphams", sanPham);
 
+        theModel.addAttribute("searchString", theSearchName);
         //check is user or anony
         String name = DumpService.getUserName();
         if(DumpService.isAnony()){

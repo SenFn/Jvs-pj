@@ -330,18 +330,12 @@
                                                         <h3>Thông tin chi tiết về sản phẩm</h3>
                                                         <div class="row">
                                                             <div class="col">
-                                                                <strong>Antenna Thiết kế sáng tạo</strong>
                                                                 <br>
                                                                     <%=mota%>
 
                                                                     <br>
-                                                                        UniFi AC LR AP Thiết kế với hiệu suất RF tối ưu
-
-                                                                        <br>
-                                                                            UniFi AC LR AP Hệ thống quản lý Wi-Fi chuyên nghiệp
-                                                                            <br>
-                                                                                The UniFi Controller v4 software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance. With its software-based capabilities, the UniFi virtual control plane allows for unlimited scalability under one centralized controller. Remotely access the UniFi Controller to upgrade deployed UniFi APs while in the field.
-                                                                                </div>
+                                                                                                                                               <br>
+                                                                            </div>
                                                                                 </div>
                                                                                 </div>
                                                                                 </div>
