@@ -1,9 +1,4 @@
-<%-- 
-    Document   : checkout
-    Created on : May 26, 2021, 7:59:37 PM
-    Author     : LENNGUYEN
---%>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.sql.Date"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -137,7 +132,7 @@
             <div class="py-5 text-center">
 
                 <h2>THANH TOÁN</h2>
-                <p> Nếu bạn có tài khoản vui lòng đăng nhập <a href="${pageContext.request.contextPath}/view/client/login" style="color: #754110">tại đây!</a></p>
+                <p> Nếu bạn có tài khoản vui lòng đăng nhập <a href="${pageContext.request.contextPath}/showMyLoginPage" style="color: #754110">tại đây!</a></p>
             </div>
             <%--------------------------------------------- Bảng thanh toán giỏ hàng --------------------------------------------%>
             <div class="container">
@@ -146,7 +141,7 @@
                         <table class="col-xs-12 col-sm-12 col-md-12">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center">Xóa</th>
+<%--                                    <th style="text-align: center">Xóa</th>--%>
                                     <th style="text-align: center">Mã Sản Phẩm</th>
                                     <th style="text-align: center">Ảnh</th>
                                     <th style="text-align: center">Tên Sản Phẩm</th>
@@ -164,12 +159,12 @@
                                 <c:if test="${! empty giohangs.sanPhamTrongGioHangs}">                                  
                                     <c:forEach items="${giohangs.sanPhamTrongGioHangs}" var="sanPhamTrongGioHang">
                                         <tr style="text-align: center"> 
-                                            <c:url var="xoaUrl" value="/thanhtoan/deleteSanPhamTrongGio">
-                                                <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>
+<%--                                            <c:url var="xoaUrl" value="/thanhtoan/deleteSanPhamTrongGio">--%>
+<%--                                                <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>--%>
 
-                                                <c:param name="giohangId" value="${giohangId}"/>
-                                            </c:url>
-                                            <td style="text-align: center"><a class="btn-remove" href="${xoaUrl}"><span class="fa fa-trash-o"></span></a></td>
+<%--                                                <c:param name="giohangId" value="${giohangId}"/>--%>
+<%--                                            </c:url>--%>
+<%--                                            <td style="text-align: center"><a class="btn-remove" href="${xoaUrl}"><span class="fa fa-trash-o"></span></a></td>--%>
                                             <td style="text-align: center">
                                                 <c:out value="${sanPhamTrongGioHang.masp}"></c:out>
                                                 </td>
@@ -177,41 +172,41 @@
                                                     <img  src="data:image/png;base64,${sanPhamTrongGioHang.imggh}" style="width: 60px; height: 60px"/>
                                                 </td>
                                                 <td style="text-align: center">
-                                                    <a href="#"> <c:out value="${sanPhamTrongGioHang.tenSanPham}"></c:out></a>
+                                                    <a href="${pageContext.request.contextPath}/thongtinsanpham/list?sanphamId=${sanPhamTrongGioHang.masp}"> <c:out value="${sanPhamTrongGioHang.tenSanPham}"></c:out></a>
 
                                                 </td>
                                                 <td style="text-align: center">
 
-                                                <c:url var="congUrl" value="/thanhtoan/congsoluong">
-                                                    <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>
-                                                    <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                    <c:param name="giohangId" value="${giohangId}"/>
-                                                    <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                       <c:param name="tennguoidung"   value="${tennguoidung}" />
-                                                </c:url>
-                                                <c:url var="truUrl" value="/thanhtoan/trusoluong">
-                                                    <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>
-                                                    <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                    <c:param name="giohangId" value="${giohangId}"/>
-                                                    <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>
-                                                       <c:param name="tennguoidung"   value="${tennguoidung}" />
-                                                </c:url>
-                                                <span>
-                                                    <c:if test="${sanPhamTrongGioHang.soLuong != 1}">
-                                                        <button onclick="window.location.href = '${truUrl}';" class="btn" type="button">-</button>
-                                                    </c:if>
-                                                </span>
+<%--                                                <c:url var="congUrl" value="/thanhtoan/congsoluong">--%>
+<%--                                                    <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>--%>
+<%--                                                    <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                    <c:param name="giohangId" value="${giohangId}"/>--%>
+<%--                                                    <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                       <c:param name="tennguoidung"   value="${tennguoidung}" />--%>
+<%--                                                </c:url>--%>
+<%--                                                <c:url var="truUrl" value="/thanhtoan/trusoluong">--%>
+<%--                                                    <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>--%>
+<%--                                                    <c:param name="soluong"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                    <c:param name="giohangId" value="${giohangId}"/>--%>
+<%--                                                    <c:param name="soluongsp"  value="${sanPhamTrongGioHang.soLuong}"/>--%>
+<%--                                                       <c:param name="tennguoidung"   value="${tennguoidung}" />--%>
+<%--                                                </c:url>--%>
+<%--                                                <span>--%>
+<%--                                                    <c:if test="${sanPhamTrongGioHang.soLuong != 1}">--%>
+<%--                                                        <button onclick="window.location.href = '${truUrl}';" class="btn" type="button">-</button>--%>
+<%--                                                    </c:if>--%>
+<%--                                                </span>--%>
                                                 <input style="text-align: center" size="10" type="text" value="${sanPhamTrongGioHang.soLuong}" disabled/>
-                                                <span>
+<%--                                                <span>--%>
 
-                                                    <button onclick="window.location.href = '${congUrl}';" class="btn" type="button">+</button>
+<%--                                                    <button onclick="window.location.href = '${congUrl}';" class="btn" type="button">+</button>--%>
 
-                                                </span>
+<%--                                                </span>--%>
 
                                             </td>
 
-                                            <td style="text-align: center"> <span style="color : #ff0000" id="giaid"> <c:out value="${sanPhamTrongGioHang.giaSanPham}"></c:out></span>  </td>
-                                            <td style="text-align: center">${sanPhamTrongGioHang.soLuong * sanPhamTrongGioHang.giaSanPham}<span id="tongtienid" style="color : #ff0000"></span>  </td>
+                                            <td style="text-align: center"> <span style="color : #ff0000" id="giaid"> <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sanPhamTrongGioHang.giaSanPham}" /></span>  </td>
+                                            <td style="text-align: center"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${sanPhamTrongGioHang.soLuong * sanPhamTrongGioHang.giaSanPham}"/><span id="tongtienid" style="color : #ff0000"></span>  </td>
                                         </tr>
                                         <c:url var="savekhachhangUrl" value="/thanhtoan/saveKhachHangChuaDangNhap">
                                             <c:param name="sanphamgiohangId" value="${sanPhamTrongGioHang.maspgh}"/>
@@ -235,7 +230,7 @@
                             <div> 
                                 <%------------------------ Tổng tiền ở đây  ------------------------------%> 
                                 <th>Tổng tiền: </th>
-                                <td> <strong style="color : #ff0000"> <c:out value="${tonggia}"></c:out> vnđ</strong>  </td>
+                                <td> <strong style="color : #ff0000"> <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${tonggia}"/> vnđ</strong>  </td>
 
                                 <%------------------------ ----------------------------------------------------%>
                             </div>

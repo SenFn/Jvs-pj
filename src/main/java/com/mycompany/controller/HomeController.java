@@ -255,7 +255,7 @@ public class HomeController {
         }else if(type.equals("other")){
             List<SanPham> sanPhamType = new ArrayList<>();
             for(int i=0;i<sanPham.size();i++){
-                if(sanPham.get(i).getLoaiSanPham().equals("other") || sanPham.get(i).getLoaiSanPham().equals("router Wifi") != true || !sanPham.get(i).getLoaiSanPham().equals("hub")  != true)
+                if(sanPham.get(i).getLoaiSanPham().equals("other") || sanPham.get(i).getLoaiSanPham().equals("router Wifi") != true || sanPham.get(i).getLoaiSanPham().equals("hub")  != true)
                     sanPhamType.add(sanPham.get(i));
             }
             sanPham = sanPhamType;
