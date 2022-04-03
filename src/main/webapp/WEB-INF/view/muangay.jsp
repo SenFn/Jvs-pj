@@ -132,7 +132,7 @@
             <div class="py-5 text-center">
 
                 <h2>THANH TOÁN</h2>
-                <p> Nếu bạn có tài khoản vui lòng đăng nhập <a href="${pageContext.request.contextPath}/showMyLoginPage" style="color: #754110">tại đây!</a></p>
+<%--                <p> Nếu bạn có tài khoản vui lòng đăng nhập <a href="${pageContext.request.contextPath}/showMyLoginPage" style="color: #754110">tại đây!</a></p>--%>
             </div>
             <%--------------------------------------------- Bảng thanh toán giỏ hàng --------------------------------------------%>
             <div class="container">

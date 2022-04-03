@@ -13,6 +13,7 @@
 
 <body>
 	<h2 style="text-align: center">404 - Page not found</h2>
+	<p style="text-align: center">Hmm. We could not find that page.</p>
 	<hr>
 	<div style="text-align:center">
 		<a href="<%=request.getContextPath()%>" style="text-align: center">Back to Home Page</a>

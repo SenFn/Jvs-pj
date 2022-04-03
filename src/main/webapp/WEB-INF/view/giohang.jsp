@@ -131,7 +131,7 @@
                                                                                             <img  src="data:image/png;base64,${sanPhamTrongGioHang.imggh}" style="width: 60px; height: 60px"/>
                                                                                     </td>
                                                                                     <td style="text-align: center">
-                                                                                        <a href="#"> <c:out value="${sanPhamTrongGioHang.tenSanPham}"></c:out></a>
+                                                                                        <a href="${pageContext.request.contextPath}/thongtinsanpham/list?sanphamId=${sanPhamTrongGioHang.masp}"> <c:out value="${sanPhamTrongGioHang.tenSanPham}"></c:out></a>
 
                                                                                         </td>
                                                                                         <td style="text-align: center">
@@ -196,7 +196,13 @@
 
 
                                                                                     <h5 style="text-align: center">Tổng Giá Tiền Phải Thanh Toán:             <span style="color : #ff0000" ><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${tonggia}" /> VNĐ</span></h5>
-                                                                                    <button onclick="window.location.href = '${thanhtoanUrl}';" type="button" id="btndathang" class="btn btn-danger btn-block" >Đặt Hàng</button>
+                                                                                    <c:if test="${tennguoidung == '0' || tennguoidung == 'anonymousUser' }">
+                                                                                        <button onclick="window.location.href = '${dangnhapUrl}'; alert('Bạn cần phải đăng nhập để tiếp tục!');" type="button" id="btndathang" class="btn btn-danger btn-block">Đặt Hàng</button>
+                                                                                    </c:if>
+                                                                                    <c:if test="${tennguoidung != '0' && tennguoidung != 'anonymousUser'}">
+                                                                                        <button onclick="window.location.href = '${thanhtoanUrl}';" type="button" id="btndathang" class="btn btn-danger btn-block" >Đặt Hàng</button>
+                                                                                    </c:if>
+
                                                                                 </c:if>
                                                                                 <c:if test="${empty giohangs.sanPhamTrongGioHangs }">
                                                                                     <h3  style="text-align: center" >Giỏ Hàng Hiện Tại Trống</h3>

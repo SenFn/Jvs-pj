@@ -5,34 +5,23 @@
  */
 package com.mycompany.controller;
 
-import com.mycompany.config.AppConfig;
-import com.mycompany.dao.KhachHangDao;
-import com.mycompany.dao.KhachHangDaoImpl;
-import com.mycompany.entity.*;
-//import com.mycompany.service.ChiTietHoaDonService;
+import com.mycompany.entity.GioHang;
+import com.mycompany.entity.SanPham;
 import com.mycompany.service.*;
-//import com.mycompany.service.NguoiDungService;
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
-import java.sql.Blob;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import javax.servlet.http.Cookie;
-import javax.sql.rowset.serial.SerialBlob;
 
-import org.ehcache.Cache;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+//import com.mycompany.service.ChiTietHoaDonService;
+//import com.mycompany.service.NguoiDungService;
 
 /**
  *
@@ -71,7 +60,6 @@ public class HomeController {
 
         //check is user or anony
         String name = DumpService.getUserName();
-        int id = -1;
         if(DumpService.isAnony()){
             name = "0";
         }
@@ -92,7 +80,7 @@ public class HomeController {
         model.addAttribute("soluongsanpham", soluongsanpham);
         return "index";
     }
-//--------------------------------------------------------------------------------------------------------------------------    
+//--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/homethanhtoan")
     public String HomeThanhToan(Model model) throws SQLException {
@@ -113,7 +101,7 @@ public class HomeController {
         DumpService.CleanCacheUser(DumpService.getSessionID());
         return Home(model);
     }
-    
+
 //--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/homeback")
@@ -176,7 +164,7 @@ public class HomeController {
     public String gth() {
         return "gioithieu";
     }
-//    
+//
 //--------------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/homeadmin")
@@ -191,7 +179,11 @@ public class HomeController {
         return "homeadmin";
     }
 
-    //sort string name to alphabet "abcde*uck this project"
+    /**
+     *  sort string name to alphabet "abcde*uck this project"
+     * @param input
+     * @return List<SanPham>
+     */
     public List<SanPham> sortByName(List<SanPham> input){
         Collections.sort(input, new Comparator() {
             @Override
@@ -205,7 +197,11 @@ public class HomeController {
         return input;
     }
 
-    //price increase
+    /**
+     * Sort Price Increase
+     * @param input
+     * @return List<SanPham>
+     */
     public List<SanPham> sortByPriceI(List<SanPham> input){
         Collections.sort(input, new Comparator() {
             @Override
@@ -219,7 +215,11 @@ public class HomeController {
         return input;
     }
 
-    //price decrease
+    /**
+     * Sort Price Decrease
+     * @param input
+     * @return List<SanPham>
+     */
     public List<SanPham> sortByPriceD(List<SanPham> input){
         Collections.sort(input, new Comparator() {
             @Override
@@ -255,7 +255,7 @@ public class HomeController {
         }else if(type.equals("other")){
             List<SanPham> sanPhamType = new ArrayList<>();
             for(int i=0;i<sanPham.size();i++){
-                if(sanPham.get(i).getLoaiSanPham().equals("other") || sanPham.get(i).getLoaiSanPham().equals("router Wifi") != true || sanPham.get(i).getLoaiSanPham().equals("hub")  != true)
+                if(sanPham.get(i).getLoaiSanPham().equals("router Wifi") != true && sanPham.get(i).getLoaiSanPham().equals("hub")  != true)
                     sanPhamType.add(sanPham.get(i));
             }
             sanPham = sanPhamType;
