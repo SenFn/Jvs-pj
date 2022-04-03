@@ -50,7 +50,6 @@ public class DumpService {
         if(sessionID == null) return;
         AppConfig.userCache.remove(sessionID);
         AppConfig.userCache.put(sessionID,new CacheUser(sessionID, new GioHang(new ArrayList<>())));
-        return;
     }
 
     public static GioHang CacheUpdateCard(String sessionID,SanPhamTrongGioHang sp){
